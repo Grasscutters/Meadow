@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Home from "./Home";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Error404 from "./Error404";
+import { CookiesProvider } from "react-cookie";
+import Copyright from "./Copyright";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+	return (
+		<CookiesProvider>
+			<Router>
+				<div className="App">
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route element={<Error404/>} />
+					</Routes>
+					<Copyright />
+				</div>
+			</Router>
+		</CookiesProvider>
+	);
 }
-
-export default App;
