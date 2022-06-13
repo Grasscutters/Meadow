@@ -12,8 +12,8 @@ export default function App() {
 			<Router>
 				<div className="App">
 					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route element={<Error404/>} />
+						<Route exact path="/" element={<Home />} />
+						<Route path="*" element={<Error404/>} />
 					</Routes>
 					<Copyright />
 				</div>
