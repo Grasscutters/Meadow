@@ -1,47 +1,11 @@
 import React from "react";
-
-import WindbladePlaceholderImg from "../../img/placeholder/Windblade.png";
-import GCPMPlaceholderImg from "../../img/placeholder/gcpm.png";
-import GCGMPlaceholderImg from "../../img/placeholder/gcgm.png";
-
-const placeHolderPluginList = [
-    {
-        name: "Windblade",
-        description: "Remote code executation at its finest!",
-        image: WindbladePlaceholderImg,
-        details: {
-            downloads: "69",
-            updated: "Jun 16, 2022",
-            author: "Magix"
-        }
-    },
-    {
-        name: "GCPM",
-        description: "The Grasscutter Permission Manager",
-        image: GCPMPlaceholderImg,
-        details: {
-            downloads: "69",
-            updated: "Jun 22, 2022",
-            author: "Benj"
-        }
-    },
-    {
-        name: "GCGM",
-        description: "The Grasscutter Game Master Dashboard",
-        image: GCGMPlaceholderImg,
-        details: {
-            downloads: "69",
-            updated: "May 11, 2022",
-            author: "Benj"
-        }
-    }
-];
+import placeHolderPluginList from "../../Pages/Plugins/Plugins";
 
 export default function PluginItem(props) {
     var pluginData = placeHolderPluginList[props.pluginId];
 
 	return (
-		<div className="plugin">
+        <a href={`/plugins/${props.pluginId}`} className="plugin">
 			<img src={pluginData.image} alt={pluginData.name} />
 			<div className="pluginInfo">
 				<h3>{pluginData.name}</h3>
@@ -56,8 +20,8 @@ export default function PluginItem(props) {
 						Author <span>{pluginData.details.author}</span>
 					</p>
 				</div>
-				<p> {pluginData.description} </p>
+				<p> {pluginData.short_description} </p>
 			</div>
-		</div>
+		</a>
 	);
 }
