@@ -22,6 +22,7 @@ import AyyLmaoPF from "../img/team/AyyLmao.png";
 import Akka0PF from "../img/team/Akka0.jpg";
 import XhaoYiranPF from "../img/team/xhaoyiran.png";
 import TukanDevPF from "../img/team/TukanDev.png";
+import GanyusLeftHornPF from "../img/team/GanyusLeftHorn.jpg";
 
 import React from "react";
 import DownloadButton from "../Components/Home/DownloadButton";
@@ -99,8 +100,12 @@ class Home extends React.Component {
 						<TeamMember picture={BirdulonPF} name="Birdulon" links={true} github="Birdulon" />
 						<TeamMember picture={ExZorkPF} name="ExZork" links={true} github="exzork" />
 						<TeamMember picture={AyyLmaoPF} name="Ayy Lmao" links={true} github="lilmayofuksu" />
+						<TeamMember picture={TukanDevPF} name="TukanDev" links={true} github="TukanDev" website="https://tukandev.com" />
+						<TeamMember picture={XhaoYiranPF} name="赵怡然(zhaoyiran)" links={true} github="zhaodice" />
+						<TeamMember picture={Akka0PF} name="Akka0" links={true} github="Akka0" />
+						<TeamMember picture={GanyusLeftHornPF} name="GanyusLeftHorn" links={true} github="GanyusLeftHorn" />
 						<TeamMember picture={NitroPF} name="Nitro" links={true} github="nitrog0d" badge="MELON" badgeColor="#ff3b6a" />
-						<TeamMember picture={ShigetokiPF} name="茂刻shigetoki" badge="ARTIST" badgeColor="#9b59b6" />
+						<TeamMember picture={ShigetokiPF} name="茂刻shigetoki" links={false} badge="ARTIST" badgeColor="#9b59b6" />
 					</div>
 				</div>
 			</div>
