@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Error404 from "./Pages/Error404";
 import { CookiesProvider } from "react-cookie";
 import Copyright from "./Components/Copyright";
+import PluginsRoute from "./Pages/Plugins/PluginsRoute";
 
 export default function App() {
 	return (
@@ -13,6 +14,7 @@ export default function App() {
 				<div className="App">
 					<Routes>
 						<Route exact path="/" element={<Home />} />
+						<Route path="/plugins/*" element={<PluginsRoute />} />
 						<Route path="*" element={<Error404/>} />
 					</Routes>
 					<Copyright />

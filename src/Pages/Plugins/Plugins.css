@@ -1,0 +1,120 @@
+#mainBody {
+    margin-top: 90px;
+}
+
+.pluginNavigation {
+    background-color: white;
+    color: black;
+
+    margin: 60px 16%;
+    padding: 16px;
+
+    border-radius: 16px;
+}
+
+.pluginNavigation h2 {
+    margin-left: 50px;
+}
+
+.pluginNavigation .body {
+    display:flex;
+    flex-direction: row;
+}
+
+.pluginNavigation .body .sidebar {
+    width: 25%;
+    height: 100%;
+}
+
+.pluginNavigation .body .sidebar .panel {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.pluginNavigation .body .sidebar .panel .panelHeader {
+    border-bottom: 1px solid black;
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+}
+
+.pluginNavigation .body .sidebar .panel .panelHeader p {
+    margin: 0px 10px;
+    padding: 0;
+}
+
+.pluginNavigation .body .sidebar .panel .content {
+    margin: 0px 10px;
+}
+
+.pluginNavigation .body .sidebar .panel .content ul {
+    padding-left: 10px;
+}
+
+.pluginNavigation .body .sidebar .panel .content ul li {
+    list-style: none;
+}
+
+.pluginNavigation .body .content {
+    margin: 0px 60px 0px 16px;
+    width: 100%;
+}
+
+.pluginNavigation .body .content .pluginList {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    row-gap: 16px;
+}
+
+.pluginNavigation .body .content .pluginList .plugin {
+    height: 64px;
+    width: 100%;
+    
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.66);
+
+    display: flex;
+}
+
+.pluginNavigation .body .content .pluginList .plugin img {
+    height: inherit;
+
+    border-radius: 12px;
+}
+
+.pluginNavigation .body .content .pluginList .plugin .pluginInfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.pluginNavigation .body .content .pluginList .plugin .pluginInfo h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.pluginNavigation .body .content .pluginList .plugin .pluginInfo p {
+    margin: 0;
+    margin-top: 4px;
+    padding: 0;
+}
+
+.pluginNavigation .body .content .pluginList .plugin .pluginInfo .details {
+    display: flex;
+}
+
+.pluginNavigation .body .content .pluginList .plugin .pluginInfo .details p {
+    padding-right: 10px;
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+.pluginNavigation .body .content .pluginList .plugin .pluginInfo .details p span {
+    border-bottom: 1px dotted #000;
+    text-decoration: none;
+    color: rgb(10, 10, 10)
+}
