@@ -1,26 +1,29 @@
 import "./Home.css";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import TeamMember from "./Components/TeamMember";
+import TeamMember from "../Components/TeamMember";
 
-import Logo from "./img/grasscutter-icon.png";
+import Logo from "../img/grasscutter-icon.png";
 
-import MeledyPF from "./img/team/Meledy.webp";
-import MagixPF from "./img/team/Magix.png";
-import BenjPF from "./img/team/Benj.png";
-import LunaticPF from "./img/team/Lunatic.webp";
-import memetrollsXDPF from "./img/team/MemetrollsXD.webp";
-import MlgmXyysdPF from "./img/team/MlgmXyysd.webp";
-import SpikeHDPF from "./img/team/SpikeHD.webp";
-import YazawaziPF from "./img/team/Yazawazi.webp";
-import AlteriPF from "./img/team/Alteri.png";
-import BirdulonPF from "./img/team/Birdulon.png";
-import ShigetokiPF from "./img/team/Shigetoki.png";
-import ExZorkPF from "./img/team/ExZork.png";
-import NitroPF from "./img/team/Nitro.png";
-import AyyLmaoPF from "./img/team/AyyLmao.png";
+import MeledyPF from "../img/team/Meledy.webp";
+import MagixPF from "../img/team/Magix.png";
+import BenjPF from "../img/team/Benj.png";
+import LunaticPF from "../img/team/Lunatic.webp";
+import memetrollsXDPF from "../img/team/MemetrollsXD.webp";
+import MlgmXyysdPF from "../img/team/MlgmXyysd.webp";
+import SpikeHDPF from "../img/team/SpikeHD.webp";
+import YazawaziPF from "../img/team/Yazawazi.webp";
+import AlteriPF from "../img/team/Alteri.png";
+import BirdulonPF from "../img/team/Birdulon.png";
+import ShigetokiPF from "../img/team/Shigetoki.png";
+import ExZorkPF from "../img/team/ExZork.png";
+import NitroPF from "../img/team/Nitro.png";
+import AyyLmaoPF from "../img/team/AyyLmao.png";
+
 import React from "react";
-import DownloadButton from "./Components/DownloadButton";
+import DownloadButton from "../Components/DownloadButton";
+
+import "./Home.css"
 
 class Home extends React.Component {
 	componentDidMount() {
