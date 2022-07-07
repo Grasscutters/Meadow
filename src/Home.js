@@ -20,6 +20,7 @@ import ExZorkPF from "./img/team/ExZork.png";
 import NitroPF from "./img/team/Nitro.png";
 import AyyLmaoPF from "./img/team/AyyLmao.png";
 import React from "react";
+import DownloadButton from "./Components/DownloadButton";
 
 class Home extends React.Component {
 	componentDidMount() {
@@ -37,12 +38,30 @@ class Home extends React.Component {
 							<h1>Grasscutter</h1>
 							<p>A private server software for a Certain Anime Game&trade;</p>
 							<div className="links">
-								<button id="dlatest"> Download Latest Build </button>
-								<button id="ddevelopment"> Download Development Build </button>
-								<button id="dgrassclipper"> Download Cultivation </button>
-							</div>
-							<div className="links">
-								<button id="dsource"> Download Source </button>
+								<DownloadButton name="Download Grasscutter" githubPath="Grasscutters/Grasscutter" color="greenyellow" dropdown={ [
+									{
+										name: "Stable Releases",
+										url: "https://github.com/Grasscutters/Grasscutter/releases"
+									},
+									{
+										name: "Development Builds",
+										url: "https://jenkins.4benj.com/job/Grasscutters/job/Grasscutter/"
+									},
+									{
+										name: "Source Code",
+										url: "https://github.com/Grasscutters/Grasscutter"
+									}
+								]} />
+								<DownloadButton name="Download Cultivation" githubPath="Grasscutters/Cultivation" color="yellow" dropdown={ [
+									{
+										name: "Releases",
+										url: "https://github.com/Grasscutters/Cultivation/releases"
+									},
+									{
+										name: "Source Code",
+										url: "https://github.com/Grasscutters/Cultivation"
+									}
+								]}  />
 							</div>
 						</div>
 					</div>
