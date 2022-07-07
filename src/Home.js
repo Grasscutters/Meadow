@@ -36,9 +36,9 @@ class Home extends React.Component {
 						<img className="logo" src={Logo} alt="grasscutter logo" />
 						<div className="text">
 							<h1>Grasscutter</h1>
-							<p>A private server software for a Certain Anime Game&trade;</p>
+							<p>A private server software for a Certain Anime Game</p>
 							<div className="links">
-								<DownloadButton name="Download Grasscutter" githubPath="Grasscutters/Grasscutter" color="greenyellow" dropdown={ [
+								<DownloadButton name="Download Grasscutter" githubPath="Grasscutters/Grasscutter" githubUseLatest={true} color="greenyellow" dropdown={ [
 									{
 										name: "Stable Releases",
 										url: "https://github.com/Grasscutters/Grasscutter/releases"
@@ -52,7 +52,7 @@ class Home extends React.Component {
 										url: "https://github.com/Grasscutters/Grasscutter"
 									}
 								]} />
-								<DownloadButton name="Download Cultivation" githubPath="Grasscutters/Cultivation" color="yellow" dropdown={ [
+								<DownloadButton name="Download Cultivation" githubPath="Grasscutters/Cultivation" githubUseLatest={false} color="yellow" dropdown={ [
 									{
 										name: "Releases",
 										url: "https://github.com/Grasscutters/Cultivation/releases"

@@ -27,11 +27,19 @@ export default function DownloadButton(props) {
 
     function downloadGithubRelease(e, path) {
         e.preventDefault();
-        axios.get(`https://api.github.com/repos/${path}/releases/latest`).then(res => {
-            if(res.data) {
-                window.location.href = res.data.assets[0].browser_download_url;
-            }
-        });
+        if(props.githubUseLatest) {
+            axios.get(`https://api.github.com/repos/${path}/releases/latest`).then(res => {
+                if(res.data) {
+                    window.location.href = res.data.assets[0].browser_download_url;
+                }
+            });
+        } else {
+            axios.get(`https://api.github.com/repos/${path}/releases`).then(res => {
+                if(res.data) {
+                    window.location.href = res.data[0].assets[0].browser_download_url;
+                }
+            });
+        }
     }
 
   return (
