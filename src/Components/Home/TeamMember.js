@@ -2,7 +2,7 @@ import React from "react";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 
-import ClickableFontAwesome from "./ClickableFontAwesome";
+import ClickableFontAwesome from "../ClickableFontAwesome";
 
 export default function TeamMember(props) {
 	return (

@@ -1,7 +1,7 @@
 import "./Home.css";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import TeamMember from "../Components/TeamMember";
+import TeamMember from "../Components/Home/TeamMember";
 
 import Logo from "../img/grasscutter-icon.png";
 
@@ -19,9 +19,12 @@ import ShigetokiPF from "../img/team/Shigetoki.png";
 import ExZorkPF from "../img/team/ExZork.png";
 import NitroPF from "../img/team/Nitro.png";
 import AyyLmaoPF from "../img/team/AyyLmao.png";
+import Akka0PF from "../img/team/Akka0.jpg";
+import XhaoYiranPF from "../img/team/xhaoyiran.png";
+import TukanDevPF from "../img/team/TukanDev.png";
 
 import React from "react";
-import DownloadButton from "../Components/DownloadButton";
+import DownloadButton from "../Components/Home/DownloadButton";
 
 import "./Home.css"
 

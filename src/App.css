@@ -3,10 +3,15 @@
 	src: url("./fonts/Michroma/Michroma-Regular.ttf");
 }
 
+@font-face {
+	font-family: "Roboto";
+	src: url("./fonts/Roboto/Roboto-Regular.ttf");
+}
+
 body {
 	padding: 0;
 	margin: 0;
-	font-family: "Michroma";
+	font-family: "Roboto";
 	background-color: #333;
 	color: white;
 }
