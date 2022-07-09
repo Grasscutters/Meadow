@@ -41,12 +41,23 @@
     width: 250px;
 }
 
+.pluginCreator .section.upload .field textarea {
+    width: 50%;
+    height: 150px;
+    resize: vertical;
+}
+
 .pluginCreator .section.upload .field.isPreview {
     flex-direction: row;
 }
 
 .pluginCreator .section.upload .field.isPreview label {
     margin-bottom: 0;
+}
+
+.pluginCreator .section.upload .field select {
+    width: 50%;
+    height: 200px;
 }
 
 .pluginCreator .section.links input[type="button"] {
