@@ -1,0 +1,163 @@
+.pluginCreator .section {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+
+    border-bottom: solid 1px #e0e0e0;
+
+    padding: 12px 20px;
+}
+
+.pluginCreator h2 {
+    margin-top: 12px;
+}
+
+.pluginCreator .field {
+    display: flex;
+    flex-direction: column;
+}
+
+.pluginCreator .field label {
+    margin-bottom: 10px;
+}
+
+.pluginCreator .field input[type="text"] {
+    width: 250px;
+    padding: 4px 10px;
+
+    border: black solid 1px;
+    border-radius: 5px;
+}
+
+.pluginCreator .field input[type="text"]#summary {
+    width: 500px;
+}
+
+.pluginCreator .field input[type="text"]#version {
+    width: 60px;
+}
+
+.pluginCreator .section.upload .field input[type="file"] {
+    width: 250px;
+}
+
+.pluginCreator .section.upload .field.isPreview {
+    flex-direction: row;
+}
+
+.pluginCreator .section.upload .field.isPreview label {
+    margin-bottom: 0;
+}
+
+.pluginCreator .section.links input[type="button"] {
+    width: 100px;
+}
+
+.pluginCreator .section.links .field {
+    flex-direction: row;
+    column-gap: 10px;
+}
+
+.pluginCreator .section.links .field input[type="text"] {
+    width: 150px;
+}
+
+.pluginCreator .section.links .field input[type="text"].url {
+    width: 300px;
+}
+
+.pluginCreator .section.links .field input[type="button"] {
+    width: 75px;
+}
+
+.pluginCreator .section.submit {
+    border-bottom: none;
+}
+
+.pluginCreator .section.submit input[type="Button"] {
+    width: 160px;
+    padding: 4px 10px;
+    margin: 16px 0
+}
+
+.pluginCreator .basicInfo .field.iconUpload div {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    border: black solid 2px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.pluginCreator .basicInfo .field.iconUpload div img {
+    width: 150px;
+    height: 150px;
+}
+
+.pluginCreator .basicInfo .field.iconUpload div p {
+    position: absolute;
+    transform: translate(-50%, 0);
+
+    width: inherit;
+    text-align: center;
+    font-size: 9px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0px 2px;
+    margin: 0;
+    bottom: 0;
+    left: 50%;
+}
+
+.pluginCreator .basicInfo .field.iconUpload input[type="file"] {
+    opacity: 0;
+}
+
+.pluginCreator .descriptionEditor {
+    position: relative;
+}
+
+.pluginCreator .descriptionEditor .imageUploader {
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+
+    padding: 16px 20px;
+    background-color: white;
+
+    border-radius: 10px;
+}
+
+.pluginCreator .descriptionEditor .imageUploader .uploadImage, .pluginCreator .descriptionEditor .imageUploader .uploadImage .uploadedImages {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.pluginCreator .descriptionEditor .imageUploader h4 {
+    margin: 0;
+}
+
+.pluginCreator .descriptionEditor .imageUploader p {
+    margin: 0;
+}
+
+.pluginCreator .descriptionEditor .imageUploader .uploadedImages {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.pluginCreator .descriptionEditor .imageUploader .uploadedImages .queuedImage {
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+}
+
+.pluginCreator .descriptionEditor .imageUploader .uploadedImages .queuedImage img {
+    width: 26px;
+    height: 26px;
+}
+

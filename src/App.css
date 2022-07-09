@@ -42,101 +42,6 @@ div.center {
 	transform: translate(-50%, -50%);
 }
 
-nav {
-	height: 45px;
-	width: 100%;
-	background-color: #333;
-	overflow: hidden;
-}
-
-nav div.title {
-	float: left;
-	width: 30%;
-	height: 100%;
-}
-
-nav div.title h1 {
-	margin: 0;
-	padding: 0;
-	padding-top: 10px;
-	padding-right: 100px;
-
-	float: right;
-	text-align: center;
-}
-
-nav div.title h1 a {
-	color: white;
-	text-decoration: none;
-	font-weight: 100;
-}
-
-nav div.nav-links {
-	float: left;
-	width: 65%;
-	height: 100%;
-}
-
-nav div.nav-links ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-nav div.nav-links ul li {
-	float: left;
-	transition: 0.2s ease;
-}
-
-nav div.nav-links ul li a {
-	transition: 0.2s ease;
-
-	float: left;
-	color: #f2f2f2;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-	font-size: 17px;
-}
-
-nav div.nav-links ul li:hover a {
-	background-color: #ddd;
-	color: black;
-}
-
-nav div.social {
-	float: left;
-	width: 5%;
-	height: 100%;
-}
-
-nav div.social ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-nav div.social ul li {
-	float: left;
-	transition: 0.2s ease;
-}
-
-nav div.social ul li a {
-	transition: 0.2s ease;
-
-	float: left;
-	color: #f2f2f2;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-	font-size: 17px;
-}
-
-nav div.social ul li:hover a {
-	background-color: #ddd;
-	color: black;
-}
-
 /*******************/
 /*******Modal*******/
 /*******************/
@@ -203,4 +108,43 @@ div#copyright-notice {
 	height: 50px;
 	border-top: 5px solid #f9cb26;
 	text-align: center;
+}
+
+/*******************/
+/******Tooltip******/
+/*******************/
+span.help {
+	position: absolute;
+}
+
+span.help .tooltip {
+	position: absolute;
+	transform: translate(-50%, -50%);
+
+	top: -50px;
+	left: 0;
+	width: 200px;
+	padding: 10px;
+	background-color: #666;
+	color: white;
+	font-size: 14px;
+	text-align: center;
+	pointer-events: none;
+}
+
+.span.help .tooltip:after {
+    content:'';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -50px;
+    width: 0;
+    height: 0;
+    border-top: solid 50px #e15915;
+    border-left: solid 50px transparent;
+    border-right: solid 50px transparent;
+}
+
+span.help:hover .tooltip {
+	display: block;
 }
