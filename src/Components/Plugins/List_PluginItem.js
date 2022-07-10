@@ -1,26 +1,37 @@
 import React from "react";
-import placeHolderPluginList from "../../Pages/Plugins/Plugins";
+//import DefaultIcon from "../../img/defaults/Unknown.png";
+import { getThreeLetterMonth } from "../../data/dates";
+import API from "../../data/api";
 
-export default function PluginItem(props) {
-    var pluginData = placeHolderPluginList[props.pluginId];
+
+export default function PluginItem({plugin}) {
+
+	const getPluginUpdatedDate = () => {
+		let date = new Date(plugin.dateUpdated);
+		let day = date.getDate();
+		let month = getThreeLetterMonth(date.getMonth());
+		let year = date.getFullYear();
+
+		return `${day} ${month} ${year}`;
+	}
 
 	return (
-        <a href={`/plugins/${props.pluginId}`} className="plugin">
-			<img src={pluginData.image} alt={pluginData.name} />
+        <a href={`/plugins/${plugin._id}`} className="plugin">
+			<img crossOrigin="anonymous" src={`${API().getUri()}plugins/${plugin._id}/icon`} alt={plugin.name} />
 			<div className="pluginInfo">
-				<h3>{pluginData.name}</h3>
+				<h3>{plugin.name}</h3>
 				<div className="details">
 					<p className="downloads">
-						<span>{pluginData.details.downloads} Downloads</span>
+						<span>??? Downloads</span>
 					</p>
 					<p className="updated">
-						Updated <span>{pluginData.details.updated}</span>
+						Updated <span>{getPluginUpdatedDate()}</span>
 					</p>
 					<p className="author">
-						Author <span>{pluginData.details.author}</span>
+						Author <span>{plugin.createdBy}</span>
 					</p>
 				</div>
-				<p> {pluginData.short_description} </p>
+				<p> {plugin.summary} </p>
 			</div>
 		</a>
 	);

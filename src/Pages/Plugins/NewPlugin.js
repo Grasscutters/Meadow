@@ -92,12 +92,16 @@ export default class NewPlugin extends Component {
 			changeLog: this.state.pluginChangeLog,
 			links: this.state.links,
 			testedGCVersions: this.state.pluginVerifiedVersions.replace(" ", "").split(","),
-			supportedLanguages: this.state.pluginSupportedLanguages
+			supportedLanguages: this.state.pluginSupportedLanguages,
+			isPreviewBuild: this.state.pluginPreviewBuild,
 		};
 
 		let formData = new FormData();
-		//formData.append("images", this.state.images.map(image => image.file));
-		//formData.append("icon", this.state.pluginIcon);
+		//formData.append("images", this.state.images.map(image => { return image } ));
+		this.state.images.forEach(imageData => {
+			formData.append(`attachment_${imageData.imageName}`, imageData.file);
+		});
+		formData.append("pluginIcon", this.state.pluginIcon);
 		formData.append("pluginJar", this.state.pluginJar);
 		formData.append("data", JSON.stringify(data));
 
