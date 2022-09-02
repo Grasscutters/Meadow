@@ -13,6 +13,7 @@ export default function Header() {
 			<ul>
 				<li onClick={(e) => navigate(e, "/")}>Home</li>
 				<li onClick={(e) => navigate(e, "/plugins")}>Plugins</li>
+				<li onClick={(e) => navigate(e, "/wiki")}>Wiki</li>
 			</ul>
 		</div>
 	);
