@@ -1,4 +1,9 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
+
+import Header from "@components/Header";
+
+import Home from "@pages/Home";
 
 import "@css/App.css";
 
@@ -6,19 +11,13 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <header className="App-header">
-                    <p>
-                        Edit <code>src/ui/App.tsx</code> and save to reload.
-                    </p>
-                    <a
-                        className="App-link"
-                        href="https://reactjs.org"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Learn React
-                    </a>
-                </header>
+                <Header />
+                <Routes>
+                    <Route path={"/"} element={<Home />} />
+                    <Route path={"/downloads"} element={<p>Downloads</p>} />
+                    <Route path={"/wiki"} element={<p>Wiki</p>} />
+                    <Route path={"/features"} element={<p>Features</p>} />
+                </Routes>
             </div>
         );
     }
