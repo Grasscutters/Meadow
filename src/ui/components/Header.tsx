@@ -30,10 +30,10 @@ class Header extends React.Component<{}, IState> {
 
         if (window.scrollY > 0 && !isOpaque) {
             this.setState({ isOpaque: true });
-            header.style.backgroundColor = "#2d2d2d";
+            header.style.background = "#2d2d2d";
         } else if (window.scrollY === 0 && isOpaque) {
             this.setState({ isOpaque: false });
-            header.style.backgroundColor = "rgba(0, 0, 0, 0)";
+            header.style.background = "linear-gradient(0deg, transparent, rgba(0, 0, 0, 0.7))";
         }
     }
 

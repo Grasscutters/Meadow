@@ -1,7 +1,7 @@
 .Header {
     width: 100%;
     height: 70px;
-    background-color: transparent;
+    background: linear-gradient(0deg, transparent, rgba(0, 0, 0, 0.7));
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,7 +36,7 @@
 }
 
 .Header_Page:hover {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .Header_Links {
@@ -58,11 +58,11 @@
 }
 
 .Header_Link:hover {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .Header_Link:last-child:hover {
-    background-color:  rgba(88, 101, 242, 0.4);
+    background-color:  rgba(88, 101, 242, 0.7);
 }
 
 .Header_MenuBtn {
