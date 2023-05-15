@@ -17,6 +17,7 @@ class App extends React.Component {
                     <Route path={"/downloads"} element={<p>Downloads</p>} />
                     <Route path={"/wiki"} element={<p>Wiki</p>} />
                     <Route path={"/features"} element={<p>Features</p>} />
+                    <Route path={"/config"} element={<p>Config Generator</p>} />
                 </Routes>
             </div>
         );
