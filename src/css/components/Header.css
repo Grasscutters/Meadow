@@ -1,0 +1,64 @@
+.Header {
+    width: 100%;
+    height: 80px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.Header_Container {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Header_Pages {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Header_Page {
+    padding: 10px 40px;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.Header_Page:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.Header_Links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Header_Link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.Header_Link:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.Header_Link:last-child:hover {
+    background-color:  rgba(88, 101, 242, 0.4);
+}
