@@ -7,3 +7,20 @@ html, body {
     background-color: #2d2d2d;
     color: #fff;
 }
+
+.BasicButton {
+    background-color: transparent;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.BasicButton:active {
+     scale: 0.9;
+}
+
