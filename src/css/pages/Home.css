@@ -1,0 +1,135 @@
+.Home_Grasscutter {
+    background-image: url('/gc_wallpaper.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 600px;
+    width: 100%;
+    display: flex;
+}
+
+.Home_Grasscutter_Container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(270deg, transparent, #112a49);
+}
+
+.Home_Grasscutter_Container_Text {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin-right: 600px;
+}
+
+.Home_Grasscutter_Container_Text h1 {
+    font-size: 50px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.Home_Grasscutter_Buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.Home_Cultivation {
+    background-image: url('/culti_wallpaper.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 600px;
+    width: 100%;
+    display: flex;
+}
+
+.Home_Cultivation_Container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(90deg, transparent, #2596be);
+}
+
+.Home_Cultivation_Container_Text {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin-left: 600px;
+    text-align: end;
+}
+
+.Home_Cultivation_Container_Text h1 {
+    font-size: 50px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.Home_Cultivation_Buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    justify-content: end;
+}
+
+.Home_ConfigGen {
+    width: 100%;
+    height: 200px;
+    background-image: url('/config_backdrop.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Home_ConfigGen_Container {
+    width: 1200px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Home_ConfigGen_Container_Text {
+    max-width: 800px;
+}
+
+@media screen and (max-width: 1200px) {
+    .Home_Grasscutter_Container_Text {
+        width: 80%;
+        margin-right: 0;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .Home_Cultivation_Container_Text {
+        width: 80%;
+        margin-left: 0;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .Home_ConfigGen {
+        height: 400px;
+    }
+
+    .Home_ConfigGen_Container {
+        width: 80%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
