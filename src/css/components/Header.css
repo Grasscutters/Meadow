@@ -1,14 +1,16 @@
 .Header {
     width: 100%;
-    height: 80px;
+    height: 70px;
     background-color: transparent;
     display: flex;
     justify-content: center;
+    align-items: center;
     box-sizing: border-box;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 100;
+    transition: all 0.2s ease;
 }
 
 .Header_Container {
@@ -26,7 +28,7 @@
 }
 
 .Header_Page {
-    padding: 10px 40px;
+    padding: 5px 40px;
     font-size: 17px;
     font-weight: 500;
     cursor: pointer;
@@ -48,7 +50,7 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
-    padding: 10px 20px;
+    padding: 5px 20px;
     font-size: 17px;
     font-weight: 500;
     cursor: pointer;
@@ -61,4 +63,56 @@
 
 .Header_Link:last-child:hover {
     background-color:  rgba(88, 101, 242, 0.4);
+}
+
+.Header_MenuBtn {
+    cursor: pointer;
+    padding: 20px;
+}
+
+.Header_MenuBtn:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.Header_LinksMobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.Header_LinksMobile svg {
+    cursor: pointer;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.Header_LinksMobile svg:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.Header_LinksMobile svg:last-child:hover {
+    background-color:  rgba(88, 101, 242, 0.4);
+}
+
+.Header_MobileMenu {
+    width: 100%;
+    background-color: #2d2d2d;
+    margin-top: 70px;
+}
+
+.Header_MobileMenu div {
+    transition: all 0.2s ease;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.Header_MobileMenu div:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+@media screen and (max-width: 875px) {
+    .Header {
+        justify-content: space-between;
+    }
 }
