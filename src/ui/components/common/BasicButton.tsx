@@ -26,7 +26,7 @@ class BasicButton extends React.Component<IProps> {
                 style={{
                     ...this.props.style,
                     backgroundColor: !this.props.outline ? this.props.color : "transparent",
-                    border: this.props.outline ? `1px solid ${this.props.color}` : "none",
+                    border: this.props.outline ? `1px solid #fff` : "none",
                 }}
                 onClick={this.props.onClick}
             >
