@@ -114,7 +114,7 @@
 }
 
 .Home_About_Container {
-    width: 1000px;
+    max-width: 1000px;
     height: 100%;
     text-align: center;
 }
@@ -170,6 +170,88 @@
     color: #737373;
 }
 
+.Home_Team {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+    background: linear-gradient(180deg, #1e1e1e, transparent);
+}
+
+.Home_Team h1 {
+    font-size: 50px;
+    font-weight: 1000;
+    color: #68a3e8;
+}
+
+.Home_Team h3 {
+    font-size: 25px;
+    font-weight: 500;
+    color: #d7d7d7;
+    margin: -10px 0 50px 0;
+}
+
+.Home_Team_Members {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    row-gap: 50px;
+    margin-top: 50px;
+}
+
+.TeamMember {
+    width: 256px;
+    height: 256px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.TeamMember_Image {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    border: 7px solid #fff;
+    margin-bottom: 10px;
+    transition: 0.2s ease-in-out scale;
+    box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.2);
+}
+
+.TeamMember_Image:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+
+.TeamMember_Name {
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.TeamMember_Badge {
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0;
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.Home_Footer {
+    text-align: center;
+    height: 100px;
+    background-color: #1c1c1e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media screen and (max-width: 1200px) {
     .Home_Grasscutter_Container_Text {
         width: 80%;
@@ -197,5 +279,19 @@
         justify-content: center;
         align-items: center;
         text-align: center;
+    }
+
+    .Home_About_Cards {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .Home_Grasscutter_Buttons {
+        flex-direction: column;
+    }
+
+    .Home_Cultivation_Buttons {
+        flex-direction: column;
     }
 }

@@ -4,7 +4,8 @@ import { BsDownload, BsGithub } from "react-icons/bs";
 import { FiExternalLink } from "react-icons/fi";
 
 import BasicButton from "@components/common/BasicButton";
-import HomeCard from "@components/common/HomeCard";
+import HomeCard from "@components/home/HomeCard";
+import TeamMember from "@components/home/TeamMember";
 
 import { router } from "@app/main";
 import { getStatsAsync } from "@app/utils";
@@ -168,6 +169,36 @@ class Home extends React.Component<{}, IState> {
                         <HomeCard count={this.formatNumber(this.state.forks)} text={"REPOSITORY FORKS"} />
                         <HomeCard count={this.formatNumber(this.state.watchers)} text={"REPOSITORY WATCHERS"} />
                     </div>
+                </div>
+
+                <div className={"Home_Team"}>
+                    <h1>Meet the Team</h1>
+                    <h3>The people who made this project possible</h3>
+
+                    <div className={"Home_Team_Members"}>
+                        <TeamMember image={"team/Meledy.webp"} name={"Melledy"} githubUrl={"https://github.com/Melledy"} badge={"CREATOR"} />
+                        <TeamMember image={"team/Magix.png"} name={"Magix"} githubUrl={"https://github.com/KingRainbow44"} />
+                        <TeamMember image={"team/Benj.png"} name={"Benj"} githubUrl={"https://github.com/4Benj"} />
+                        <TeamMember image={"team/Lunatic.webp"} name={"Lunatic"} githubUrl={"https://github.com/lunaticwhat"} />
+                        <TeamMember image={"team/MemetrollsXD.webp"} name={"memetrollsXD"} githubUrl={"https://github.com/memetrollsXD"} />
+                        <TeamMember image={"team/SpikeHD.webp"} name={"SpikeHD"} githubUrl={"https://github.com/SpikeHD"} />
+                        <TeamMember image={"team/Arikatsu.jpg"} name={"Arikatsu"} githubUrl={"https://github.com/arikatsu"} />
+                        <TeamMember image={"team/Yazawazi.webp"} name={"Yazawazi"} githubUrl={"https://github.com/Yazawazi"} />
+                        <TeamMember image={"team/Alteri.png"} name={"Alteri"} githubUrl={"https://github.com/alt3ri"} />
+                        <TeamMember image={"team/Birdulon.png"} name={"Birdulon"} githubUrl={"https://github.com/Birdulon"} />
+                        <TeamMember image={"team/MlgmXyysd.webp"} name={"MlgmXyysd"} githubUrl={"https://github.com/MlgmXyysd"} />
+                        <TeamMember image={"team/ExZork.png"} name={"ExZork"} githubUrl={"https://github.com/exzork"} />
+                        <TeamMember image={"team/AyyLmao.png"} name={"Ayy Lmao"} githubUrl={"https://github.com/lilmayofuksu"} />
+                        <TeamMember image={"team/TukanDev.png"} name={"TukanDev"} githubUrl={"https://github.com/TukanDev"} />
+                        <TeamMember image={"team/xhaoyiran.png"} name={"赵怡然(zhaoyiran)"} githubUrl={"https://github.com/zhaodice"} />
+                        <TeamMember image={"team/Akka0.jpg"} name={"Akka0"} githubUrl={"https://github.com/Akka0"} />
+                        <TeamMember image={"team/GanyusLeftHorn.jpg"} name={"GanyusLeftHorn"} githubUrl={"https://github.com/GanyusLeftHorn"} />
+                        <TeamMember image={"team/Nitro.png"} name={"Nitro"} githubUrl={"https://github.com/nitrog0d"} badge={"MELON"} />
+                    </div>
+                </div>
+
+                <div className={"Home_Footer"}>
+                    <p>Grasscutter Team © 2023</p>
                 </div>
             </div>
         );
