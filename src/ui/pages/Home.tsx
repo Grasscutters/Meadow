@@ -4,11 +4,52 @@ import { BsDownload, BsGithub } from "react-icons/bs";
 import { FiExternalLink } from "react-icons/fi";
 
 import BasicButton from "@components/common/BasicButton";
+import HomeCard from "@components/common/HomeCard";
+
 import { router } from "@app/main";
+import { getStatsAsync } from "@app/utils";
 
 import "@css/pages/Home.css";
 
-class Home extends React.Component {
+interface IState {
+    stars: number;
+    forks: number;
+    watchers: number;
+}
+
+class Home extends React.Component<{}, IState> {
+    constructor(props: {}) {
+        super(props);
+
+        this.state = {
+            stars: 0,
+            forks: 0,
+            watchers: 0
+        };
+    }
+
+    formatNumber = (num: number): string => {
+        if (num >= 1000) {
+            return `${(num / 1000).toFixed(1)}k+`;
+        } else {
+            return num.toString();
+        }
+    }
+
+    setStats = async () => {
+        const stats = await getStatsAsync();
+
+        this.setState({
+            stars: stats.stars,
+            forks: stats.forks,
+            watchers: stats.watchers
+        });
+    }
+
+    async componentDidMount() {
+        await this.setStats();
+    }
+
     render() {
         return (
             <div className="Home">
@@ -93,6 +134,39 @@ class Home extends React.Component {
                             color={"#0060a4"}
                             onClick={async () => await router.navigate("/config")}
                         />
+                    </div>
+                </div>
+
+                <div className={"Home_About"}>
+                    <div className={"Home_About_Container"}>
+                        <h1>About the Project</h1>
+
+                        <div className={"Home_About_Container_Text"}>
+                            <p>
+                                Written from scratch in Java, Grasscutter began its development in early 2022 with a single developer, Melledy, and was made publicly available in April 2022.
+                                The goal of Grasscutter is to provide a free, open-source alternative to the official game server, with added features and customizability.
+                            </p>
+
+                            <p>
+                                The project is being actively developed and maintained by a small team of developers, and contributors.
+                                Grasscutter welcomes contributions from anyone.
+                            </p>
+
+                            <p>
+                                Grasscutter's plugin system allows developers to create plugins that can be loaded into the server at runtime.
+                                And with a bunch of already-made plugins by the community, you can customize and enhance your server to your liking.
+                            </p>
+
+                            <p>
+                                <em>This project is not affiliated with the Hoyoverse or miHoYo in any way and is licensed under the GNU Affero General Public License v3.0.</em>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className={"Home_About_Cards"}>
+                        <HomeCard count={this.formatNumber(this.state.stars)} text={"STARS ON GITHUB"} />
+                        <HomeCard count={this.formatNumber(this.state.forks)} text={"REPOSITORY FORKS"} />
+                        <HomeCard count={this.formatNumber(this.state.watchers)} text={"REPOSITORY WATCHERS"} />
                     </div>
                 </div>
             </div>
