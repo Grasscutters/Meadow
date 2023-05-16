@@ -194,6 +194,7 @@ class Home extends React.Component<{}, IState> {
                         <TeamMember image={"team/Akka0.jpg"} name={"Akka0"} githubUrl={"https://github.com/Akka0"} />
                         <TeamMember image={"team/GanyusLeftHorn.jpg"} name={"GanyusLeftHorn"} githubUrl={"https://github.com/GanyusLeftHorn"} />
                         <TeamMember image={"team/Nitro.png"} name={"Nitro"} githubUrl={"https://github.com/nitrog0d"} badge={"MELON"} />
+                        <TeamMember image={"team/Thoronium.png"} name={"Thoronium"} githubUrl={"https://github.com/NotThorny"} />
                     </div>
                 </div>
 
