@@ -1,0 +1,162 @@
+.Downloads {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.Downloads_Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    max-width: 1200px;
+    margin-top: 70px;
+}
+
+.Downloads_Container h3 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #c5c5c5;
+    text-align: center;
+}
+
+.Downloads_Cards {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 40px;
+}
+
+.DownloadCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+    background-color: #fafafa;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.75);
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+    cursor: pointer;
+}
+
+.DownloadCard:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.75);
+}
+
+.DownloadCard_Version {
+    font-size: 16px;
+    font-weight: 400;
+    color: #7a7a7a;
+}
+
+.DownloadCard_Icon {
+    height: 64px;
+    width: 64px;
+    margin: 20px;
+}
+
+.DownloadCard_Info {
+    margin: 20px;
+}
+
+.DownloadCard_Info h4 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.DownloadCard_Info p {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 5px;
+    color: #7a7a7a;
+}
+
+.DownloadCard_Download {
+    color: #1969c9;
+}
+
+.Downloads_More {
+    color: #ffffff;
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px;
+    gap: 20px;
+}
+
+.Downloads_More h4 {
+    font-size: 35px;
+    font-weight: 700;
+    margin-top: 0;
+}
+
+.Downloads_More_Grasscutter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+    background-color: #fafafa;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.75);
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+    padding: 40px;
+}
+
+.Downloads_More_Grasscutter h5 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+    color: #000;
+}
+
+.Downloads_More_Cultivation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+    background-color: #fafafa;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.75);
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+    padding: 40px;
+}
+
+.Downloads_More_Cultivation h5 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+    color: #000;
+}
+
+@media screen and (max-width: 600px) {
+    .Downloads_More_Grasscutter {
+        flex-direction: column;
+        width: 300px;
+    }
+
+    .Downloads_More_Cultivation {
+        flex-direction: column;
+        width: 300px;
+    }
+}
