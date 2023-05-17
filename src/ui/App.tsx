@@ -19,6 +19,10 @@ class App extends React.Component {
                     <Route path={"/features"} element={<p>Features</p>} />
                     <Route path={"/config"} element={<p>Config Generator</p>} />
                 </Routes>
+
+                <div className={"Footer"}>
+                    <p>Grasscutter Team © 2023</p>
+                </div>
             </div>
         );
     }

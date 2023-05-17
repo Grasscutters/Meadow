@@ -243,15 +243,6 @@
     border-radius: 10px;
 }
 
-.Home_Footer {
-    text-align: center;
-    height: 100px;
-    background-color: #1c1c1e;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 @media screen and (max-width: 1200px) {
     .Home_Grasscutter_Container_Text {
         width: 80%;

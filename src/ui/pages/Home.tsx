@@ -197,10 +197,6 @@ class Home extends React.Component<{}, IState> {
                         <TeamMember image={"team/Thoronium.png"} name={"Thoronium"} githubUrl={"https://github.com/NotThorny"} />
                     </div>
                 </div>
-
-                <div className={"Home_Footer"}>
-                    <p>Grasscutter Team © 2023</p>
-                </div>
             </div>
         );
     }

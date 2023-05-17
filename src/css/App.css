@@ -77,3 +77,12 @@ html, body {
      scale: 0.9;
 }
 
+.Footer {
+    text-align: center;
+    height: 100px;
+    background-color: #1c1c1e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
