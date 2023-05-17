@@ -8,6 +8,58 @@ html, body {
     color: #fff;
 }
 
+.StyledHeading {
+    font-size: 50px;
+    font-weight: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+.StyledHeading_Top {
+    height: 10px;
+    width: 40%;
+    background-color: #e86c68;
+    border-radius: 20px;
+    align-self: flex-end;
+}
+
+.StyledHeading_Top:after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 40px;
+    right: 20px;
+    background-color: #e86c68;
+    border-radius: 20px;
+}
+
+.StyledHeading_Text {
+    padding: 0 25px;
+}
+
+.StyledHeading_Bottom {
+    height: 10px;
+    width: 40%;
+    background-color: #68c6e8;
+    border-radius: 20px;
+    align-self: flex-start;
+}
+
+.StyledHeading_Bottom:before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 40px;
+    left: 20px;
+    margin-top: -30px;
+    background-color: #68c6e8;
+    border-radius: 20px;
+}
+
 .BasicButton {
     background-color: transparent;
     color: #fff;
