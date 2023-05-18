@@ -1,3 +1,18 @@
+export type RunMode = "HYBRID" | "DISPATCH_ONLY" | "GAME_ONLY";
+export type ServerDebugMode = "ALL" | "MISSING" | "WHITELIST" | "BLACKLIST" | "NONE";
+export type LogLevel = "OFF" | "ERROR" | "WARN" | "INFO" | "DEBUG" | "TRACE" | "ALL";
+export type MailItem = {
+    itemId: number;
+    itemCount: number;
+    itemLevel: number;
+};
+export type Region = {
+    Name: string;
+    Title: string;
+    Ip: string;
+    Port: number;
+};
+
 export type Config = {
     folderStructure: {
         resources: string;
@@ -30,7 +45,7 @@ export type Config = {
     server: {
         debugWhitelist: number[];
         debugBlacklist: number[];
-        runMode: "HYBRID" | "DISPATCH_ONLY" | "GAME_ONLY";
+        runMode: RunMode;
         logCommands: boolean;
         http: {
             bindAddress: string;
@@ -63,7 +78,7 @@ export type Config = {
             enableScriptInBigWorld: boolean;
             enableConsole: boolean;
             kcpInterval: number;
-            logPackets: "ALL" | "MISSING" | "WHITELIST" | "BLACKLIST" | "NONE";
+            logPackets: ServerDebugMode;
             isShowPacketPayload: boolean;
             isShowLoopPackets: boolean;
             gameOptions: {
@@ -97,11 +112,7 @@ export type Config = {
                     title: string;
                     content: string;
                     sender: string;
-                    items: {
-                        itemId: number;
-                        itemCount: number;
-                        itemLevel: number;
-                    };
+                    items: MailItem[];
                 };
             };
             serverAccount: {
@@ -114,22 +125,17 @@ export type Config = {
             };
         };
         dispatch: {
-            regions: {
-                Name: string;
-                Title: string;
-                Ip: string;
-                Port: number;
-            };
+            regions: Region[];
             defaultName: string;
-            logRequests: "ALL" | "MISSING" | "WHITELIST" | "BLACKLIST" | "NONE";
+            logRequests: ServerDebugMode;
         };
         debugMode: {
-            serverLoggerLevel: "OFF" | "ERROR" | "WARN" | "INFO" | "DEBUG" | "TRACE" | "ALL";
-            servicesLoggersLevel: "OFF" | "ERROR" | "WARN" | "INFO" | "DEBUG" | "TRACE" | "ALL";
-            logPackets: "ALL" | "MISSING" | "WHITELIST" | "BLACKLIST" | "NONE";
+            serverLoggerLevel: LogLevel;
+            servicesLoggersLevel: LogLevel;
+            logPackets: ServerDebugMode;
             isShowPacketPayload: boolean;
             isShowLoopPackets: boolean;
-            logRequests: "ALL" | "MISSING" | "WHITELIST" | "BLACKLIST" | "NONE";
+            logRequests: ServerDebugMode;
         };
     };
 };
