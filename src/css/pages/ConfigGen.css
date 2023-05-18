@@ -1,0 +1,116 @@
+.ConfigGen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.ConfigGen_Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 70px;
+}
+
+.ConfigGen_Container h3 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #c5c5c5;
+    text-align: center;
+}
+
+.ConfigSection {
+    width: 90%;
+    border: 2px solid #1969c9;
+    border-radius: 10px;
+    position: relative;
+}
+
+.ConfigSection_Title {
+    position: absolute;
+    top: -38px;
+    left: 50%;
+    white-space: nowrap;
+    transform: translateX(-50%);
+    background-color: #1969c9;
+    padding: 5px 20px;
+    color: #ffffff !important;
+    border-radius: 20px;
+}
+
+.ConfigSection_Content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    gap: 20px;
+}
+
+.ConfigGen_Config {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin: 70px 0;
+}
+
+.ConfigField {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+
+.ConfigField_Name {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.ConfigField_Description {
+    font-size: 14px;
+    font-weight: 400;
+    color: #d0d0d0;
+    margin: 0;
+}
+
+.ConfigField_Input {
+}
+
+.ConfigField input[type="text"] {
+    width: 300px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: #fff;
+}
+
+.ConfigField input[type="text"]:focus {
+    outline: none;
+    border: 2px solid #1969c9;
+}
+
+@media screen and (max-width: 880px) {
+    .ConfigField {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .ConfigField input[type="text"] {
+        width: calc(100% - 25px);
+    }
+}

@@ -5,6 +5,7 @@ import Header from "@components/Header";
 
 import Home from "@pages/Home";
 import Downloads from "@pages/Downloads";
+import ConfigGen from "@pages/ConfigGen";
 
 import "@css/App.css";
 
@@ -18,7 +19,7 @@ class App extends React.Component {
                     <Route path={"/downloads"} element={<Downloads />} />
                     <Route path={"/wiki"} element={<p>Wiki</p>} />
                     <Route path={"/features"} element={<p>Features</p>} />
-                    <Route path={"/config"} element={<p>Config Generator</p>} />
+                    <Route path={"/config"} element={<ConfigGen />} />
                 </Routes>
 
                 <div className={"Footer"}>
