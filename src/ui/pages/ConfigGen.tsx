@@ -1,5 +1,7 @@
 import React from "react";
 
+import { AiOutlinePlus } from "react-icons/ai";
+
 import StyledHeading from "@components/common/StyledHeading";
 import ConfigSection from "@components/config/ConfigSection";
 import ConfigField from "@components/config/ConfigField";
@@ -638,7 +640,7 @@ class ConfigGen extends React.Component {
                                     "The items to send to the player when they join the game."
                                 }
                             >
-                                <BasicButton text={"Add Item"} />
+                                <BasicButton text={"Add Item"} icon={<AiOutlinePlus size={20} />} />
                             </ConfigField>
 
                             <ConfigField
@@ -710,7 +712,7 @@ class ConfigGen extends React.Component {
                                     "The game server regions to dispatch the player to."
                                 }
                             >
-                                <BasicButton text={"Add Region"} />
+                                <BasicButton text={"Add Region"} icon={<AiOutlinePlus size={20} />} />
                             </ConfigField>
 
                             <ConfigField
