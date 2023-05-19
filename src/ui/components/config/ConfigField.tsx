@@ -18,7 +18,9 @@ class ConfigField extends React.Component<IProps, never> {
                     <h4 className={"ConfigField_Name"}>{this.props.fieldName}</h4>
                     <p className={"ConfigField_Description"}>{this.props.description}</p>
                 </div>
-                {this.props.children}
+                <div className={"ConfigField_Input"}>
+                    {this.props.children}
+                </div>
             </div>
         );
     }

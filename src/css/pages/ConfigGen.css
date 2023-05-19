@@ -88,7 +88,9 @@
     margin: 0;
 }
 
-.ConfigField input[type="text"], .ConfigField input[type="number"], .ConfigField select {
+.ConfigField_Input input[type="text"],
+.ConfigField_Input input[type="number"],
+.ConfigField_Input select {
     width: 300px;
     border: 2px solid transparent;
     border-radius: 5px;
@@ -99,13 +101,13 @@
     box-sizing: border-box;
 }
 
-.ConfigField input[type="checkbox"] {
+.ConfigField_Input input[type="checkbox"] {
     width: 20px;
     height: 20px;
     margin: 0;
 }
 
-.ConfigField textarea {
+.ConfigField_Input textarea {
     width: 300px;
     height: 100px;
     border: 2px solid transparent;
@@ -117,7 +119,15 @@
     box-sizing: border-box;
 }
 
-.ConfigField button {
+.ConfigField_Input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.ConfigField_Input button {
     height: 40px;
     border: 2px solid #1969c9;
     border-radius: 5px;
@@ -129,9 +139,33 @@
     transition: all 0.2s ease-in-out;
 }
 
-.ConfigField input[type="text"]:focus, .ConfigField input[type="number"]:focus, .ConfigField select:focus, .ConfigField textarea:focus {
+.ConfigField_Input input[type="text"]:focus,
+.ConfigField_Input input[type="number"]:focus,
+.ConfigField_Input select:focus,
+.ConfigField_Input textarea:focus {
     outline: none;
     border: 2px solid #1969c9;
+}
+
+.ListItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.ConfigGen_Container_GenerateButton {
+    margin-bottom: 50px;
+}
+
+.ConfigGen_Container_GeneratedConfig {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
 }
 
 @media screen and (max-width: 880px) {
@@ -141,7 +175,12 @@
         justify-content: center;
     }
 
-    .ConfigField_Info, .ConfigField input[type="text"], .ConfigField input[type="number"], .ConfigField select, .ConfigField textarea {
+    .ConfigField_Info,
+    .ConfigField_Input,
+    .ConfigField_Input input[type="text"],
+    .ConfigField_Input input[type="number"],
+    .ConfigField_Input select,
+    .ConfigField_Input textarea {
         width: 100%;
     }
 }

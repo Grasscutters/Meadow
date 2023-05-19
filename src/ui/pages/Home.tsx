@@ -182,7 +182,7 @@ class Home extends React.Component<{}, IState> {
                         <TeamMember image={"team/Lunatic.webp"} name={"Lunatic"} githubUrl={"https://github.com/lunaticwhat"} />
                         <TeamMember image={"team/MemetrollsXD.webp"} name={"memetrollsXD"} githubUrl={"https://github.com/memetrollsXD"} />
                         <TeamMember image={"team/SpikeHD.webp"} name={"SpikeHD"} githubUrl={"https://github.com/SpikeHD"} />
-                        <TeamMember image={"team/Arikatsu.jpg"} name={"Arikatsu"} githubUrl={"https://github.com/arikatsu"} />
+                        <TeamMember image={"team/Arikatsu.jpg"} name={"Scald"} githubUrl={"https://github.com/arikatsu"} />
                         <TeamMember image={"team/Yazawazi.webp"} name={"Yazawazi"} githubUrl={"https://github.com/Yazawazi"} />
                         <TeamMember image={"team/Alteri.png"} name={"Alteri"} githubUrl={"https://github.com/alt3ri"} />
                         <TeamMember image={"team/Birdulon.png"} name={"Birdulon"} githubUrl={"https://github.com/Birdulon"} />
