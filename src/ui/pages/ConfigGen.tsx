@@ -1,6 +1,9 @@
 import React from "react";
 
 import { AiOutlinePlus } from "react-icons/ai";
+import { BiCopy, BiDownload } from "react-icons/bi";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { darcula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 import StyledHeading from "@components/common/StyledHeading";
 import ConfigSection from "@components/config/ConfigSection";
@@ -90,11 +93,11 @@ class ConfigGen extends React.Component<{}, IState> {
 
         config.account.autoCreate = (document.getElementById("account.autoCreate") as HTMLInputElement)?.checked || config.account.autoCreate;
         config.account.EXPERIMENTAL_RealPassword = (document.getElementById("account.EXPERIMENTAL_RealPassword") as HTMLInputElement)?.checked || config.account.EXPERIMENTAL_RealPassword;
-        config.account.defaultPermissions = (document.getElementById("account.defaultPermissions") as HTMLInputElement)?.value.replaceAll(" ", "").split(",") || config.account.defaultPermissions;
-        config.account.maxPlayers = parseInt((document.getElementById("account.maxPlayers") as HTMLInputElement)?.value ?? config.account.maxPlayers);
+        config.account.defaultPermissions = (document.getElementById("account.defaultPermissions") as HTMLInputElement)?.value ? (document.getElementById("account.defaultPermissions") as HTMLInputElement).value.replaceAll(" ", "").split(",") : config.account.defaultPermissions;
+        config.account.maxPlayers = parseInt((document.getElementById("account.maxPlayers") as HTMLInputElement)?.value) || config.account.maxPlayers;
 
-        config.server.debugWhitelist = (document.getElementById("server.debugWhitelist") as HTMLInputElement)?.value.replaceAll(" ", "").split(",").map(Number) || config.server.debugWhitelist;
-        config.server.debugBlacklist = (document.getElementById("server.debugBlacklist") as HTMLInputElement)?.value.replaceAll(" ", "").split(",").map(Number) || config.server.debugBlacklist;
+        config.server.debugWhitelist = (document.getElementById("server.debugWhitelist") as HTMLInputElement)?.value ? (document.getElementById("server.debugWhitelist") as HTMLInputElement).value.replaceAll(" ", "").split(",").map(Number) : config.server.debugWhitelist;
+        config.server.debugBlacklist = (document.getElementById("server.debugBlacklist") as HTMLInputElement)?.value ? (document.getElementById("server.debugBlacklist") as HTMLInputElement).value.replaceAll(" ", "").split(",").map(Number) : config.server.debugBlacklist;
         config.server.runMode = (document.getElementById("server.runMode") as HTMLSelectElement)?.options[(document.getElementById("server.runMode") as HTMLSelectElement)?.selectedIndex ?? 0]?.value as RunMode || config.server.runMode;
         config.server.logCommands = (document.getElementById("server.logCommands") as HTMLInputElement)?.checked || config.server.logCommands;
 
@@ -107,8 +110,8 @@ class ConfigGen extends React.Component<{}, IState> {
         config.server.http.encryption.keystore = (document.getElementById("server.http.encryption.keystore") as HTMLInputElement)?.value || config.server.http.encryption.keystore;
         config.server.http.encryption.keystorePassword = (document.getElementById("server.http.encryption.keystorePassword") as HTMLInputElement)?.value || config.server.http.encryption.keystorePassword;
         config.server.http.policies.cors.enabled = (document.getElementById("server.http.policies.cors.enabled") as HTMLInputElement)?.checked || config.server.http.policies.cors.enabled;
-        config.server.http.policies.cors.allowedOrigins = (document.getElementById("server.http.policies.cors.allowedOrigins") as HTMLInputElement)?.value.replaceAll(" ", "").split(",") || config.server.http.policies.cors.allowedOrigins;
-        config.server.http.policies.cors.allowedOrigins.push("*");
+        config.server.http.policies.cors.allowedOrigins = (document.getElementById("server.http.policies.cors.allowedOrigins") as HTMLInputElement)?.value ? (document.getElementById("server.http.policies.cors.allowedOrigins") as HTMLInputElement).value.replaceAll(" ", "").split(",") : config.server.http.policies.cors.allowedOrigins;
+        !config.server.http.policies.cors.allowedOrigins.includes("*") ? config.server.http.policies.cors.allowedOrigins.push("*") : null;
         config.server.http.files.indexFile = (document.getElementById("server.http.files.indexFile") as HTMLInputElement)?.value || config.server.http.files.indexFile;
         config.server.http.files.errorFile = (document.getElementById("server.http.files.errorFile") as HTMLInputElement)?.value || config.server.http.files.errorFile;
 
@@ -139,7 +142,7 @@ class ConfigGen extends React.Component<{}, IState> {
         config.server.game.gameOptions.resinOptions.resinUsage = (document.getElementById("server.game.gameOptions.resinOptions.resinUsage") as HTMLInputElement)?.checked || config.server.game.gameOptions.resinOptions.resinUsage;
         config.server.game.gameOptions.resinOptions.cap = parseInt((document.getElementById("server.game.gameOptions.resinOptions.cap") as HTMLInputElement)?.value) || config.server.game.gameOptions.resinOptions.cap;
         config.server.game.gameOptions.resinOptions.rechargeTime = parseInt((document.getElementById("server.game.gameOptions.resinOptions.rechargeTime") as HTMLInputElement)?.value) || config.server.game.gameOptions.resinOptions.rechargeTime;
-        config.server.game.joinOptions.welcomeEmotes = (document.getElementById("server.game.joinOptions.welcomeEmotes") as HTMLInputElement)?.value.replaceAll(" ", "").split(",").map(Number) || config.server.game.joinOptions.welcomeEmotes;
+        config.server.game.joinOptions.welcomeEmotes = (document.getElementById("server.game.joinOptions.welcomeEmotes") as HTMLInputElement)?.value ? (document.getElementById("server.game.joinOptions.welcomeEmotes") as HTMLInputElement)?.value.replaceAll(" ", "").split(",").map(Number) : config.server.game.joinOptions.welcomeEmotes;
         config.server.game.joinOptions.welcomeMessage = (document.getElementById("server.game.joinOptions.welcomeMessage") as HTMLInputElement)?.value || config.server.game.joinOptions.welcomeMessage;
         config.server.game.joinOptions.welcomeMail.title = (document.getElementById("server.game.joinOptions.welcomeMail.title") as HTMLInputElement)?.value || config.server.game.joinOptions.welcomeMail.title;
         config.server.game.joinOptions.welcomeMail.content = (document.getElementById("server.game.joinOptions.welcomeMail.content") as HTMLInputElement)?.value || config.server.game.joinOptions.welcomeMail.content;
@@ -151,9 +154,11 @@ class ConfigGen extends React.Component<{}, IState> {
         config.server.game.serverAccount.worldLevel = parseInt((document.getElementById("server.game.serverAccount.worldLevel") as HTMLInputElement)?.value) || config.server.game.serverAccount.worldLevel;
         config.server.game.serverAccount.nickname = (document.getElementById("server.game.serverAccount.nickname") as HTMLInputElement)?.value || config.server.game.serverAccount.nickname;
         config.server.game.serverAccount.signature = (document.getElementById("server.game.serverAccount.signature") as HTMLInputElement)?.value || config.server.game.serverAccount.signature;
+
         config.server.dispatch.regions = this.state.regions ?? config.server.dispatch.regions;
         config.server.dispatch.defaultName = (document.getElementById("server.dispatch.defaultName") as HTMLInputElement)?.value || config.server.dispatch.defaultName;
         config.server.dispatch.logRequests = (document.getElementById("server.dispatch.logRequests") as HTMLSelectElement)?.options[(document.getElementById("server.dispatch.logRequests") as HTMLSelectElement)?.selectedIndex ?? 0].value as ServerDebugMode || config.server.dispatch.logRequests;
+
         config.server.debugMode.serverLoggerLevel = (document.getElementById("server.debugMode.serverLoggerLevel") as HTMLSelectElement)?.options[(document.getElementById("server.debugMode.serverLoggerLevel") as HTMLSelectElement)?.selectedIndex ?? 0].value as LogLevel || config.server.debugMode.serverLoggerLevel;
         config.server.debugMode.servicesLoggersLevel = (document.getElementById("server.debugMode.servicesLoggersLevel") as HTMLSelectElement)?.options[(document.getElementById("server.debugMode.servicesLoggersLevel") as HTMLSelectElement)?.selectedIndex ?? 0].value as LogLevel || config.server.debugMode.servicesLoggersLevel;
         config.server.debugMode.logPackets = (document.getElementById("server.debugMode.logPackets") as HTMLSelectElement)?.options[(document.getElementById("server.debugMode.logPackets") as HTMLSelectElement)?.selectedIndex ?? 0].value as ServerDebugMode || config.server.debugMode.logPackets;
@@ -164,8 +169,23 @@ class ConfigGen extends React.Component<{}, IState> {
         return config;
     }
 
-    private generateConfig() {
+    private generateConfig = () => {
         this.prepareConfig().then((config) => this.setState({ config }));
+    }
+
+    private copyConfig = () => {
+        navigator.clipboard.writeText(JSON.stringify(this.state.config, null, 4)).then(r => {
+            alert("Config copied to clipboard!");
+        });
+    }
+
+    private downloadConfig = () => {
+        const element = document.createElement("a");
+        const file = new Blob([JSON.stringify(this.state.config, null, 4)], {type: 'text/plain'});
+        element.href = URL.createObjectURL(file);
+        element.download = "config.json";
+        document.body.appendChild(element);
+        element.click();
     }
 
     render() {
@@ -404,7 +424,7 @@ class ConfigGen extends React.Component<{}, IState> {
                                 >
                                     <input
                                         type={"text"}
-                                        placeholder={"0x0000, 0x0001"}
+                                        placeholder={"1159, 1116"}
                                         id={"server.debugWhitelist"}
                                     />
                                 </ConfigField>
@@ -417,7 +437,7 @@ class ConfigGen extends React.Component<{}, IState> {
                                 >
                                     <input
                                         type={"text"}
-                                        placeholder={"0x0000, 0x0001"}
+                                        placeholder={"1159, 1116"}
                                         id={"server.debugBlacklist"}
                                     />
                                 </ConfigField>
@@ -1278,9 +1298,27 @@ class ConfigGen extends React.Component<{}, IState> {
 
                         <div className={"ConfigGen_Container_GeneratedConfig"}>
                             {
-                                this.state.config !== null ?
-                                    <pre className={"ConfigGen_Container_Config"}>{JSON.stringify(this.state.config, null, 2)}</pre>
-                                    : null
+                                this.state.config !== null ? (
+                                    <>
+                                        <div className={"ConfigGen_Container_GeneratedConfig_Buttons"}>
+                                            <BasicButton
+                                                text={"Copy"}
+                                                icon={<BiCopy />}
+                                                onClick={this.copyConfig}
+                                                color={"#c95719"}
+                                            />
+                                            <BasicButton
+                                                text={"Download"}
+                                                icon={<BiDownload />}
+                                                onClick={this.downloadConfig}
+                                                color={"#6ec919"}
+                                            />
+                                        </div>
+                                        <SyntaxHighlighter language={"json"} style={darcula} wrapLines={true}>
+                                            {JSON.stringify(this.state.config, null, 4)}
+                                        </SyntaxHighlighter>
+                                    </>
+                                ) : null
                             }
                         </div>
                     </div>

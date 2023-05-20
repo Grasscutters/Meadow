@@ -160,12 +160,16 @@
 }
 
 .ConfigGen_Container_GeneratedConfig {
+    width: 100%;
+}
+
+.ConfigGen_Container_GeneratedConfig_Buttons {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 20px;
-    margin-bottom: 50px;
+    width: 100%;
 }
 
 @media screen and (max-width: 880px) {
