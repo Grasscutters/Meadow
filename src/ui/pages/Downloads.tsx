@@ -23,7 +23,7 @@ class Downloads extends React.Component<{}, IState> {
             grasscutterVersion: "",
             grasscutterDownloadLink: "",
             cultivationVersion: "",
-            cultivationDownloadLink: ""
+            cultivationDownloadLink: "",
         };
     }
 
@@ -34,9 +34,9 @@ class Downloads extends React.Component<{}, IState> {
             grasscutterVersion: data.grasscutter.version,
             grasscutterDownloadLink: data.grasscutter.url,
             cultivationVersion: data.cultivation.version,
-            cultivationDownloadLink: data.cultivation.url
+            cultivationDownloadLink: data.cultivation.url,
         });
-    }
+    };
 
     async componentDidMount() {
         await this.setDownloads();
@@ -47,7 +47,10 @@ class Downloads extends React.Component<{}, IState> {
             <div className={"Downloads"}>
                 <div className={"Downloads_Container"}>
                     <StyledHeading text={"Latest Downloads"} />
-                    <h3>We recommend using Cultivation to launch your server<br /> if you do not know what a JAR file is.</h3>
+                    <h3>
+                        We recommend using Cultivation to launch your server
+                        <br /> if you do not know what a JAR file is.
+                    </h3>
 
                     <div className={"Downloads_Cards"}>
                         <DownloadCard
@@ -75,13 +78,21 @@ class Downloads extends React.Component<{}, IState> {
                             <BasicButton
                                 text={"Latest Unstable"}
                                 color={"#0095ff"}
-                                onClick={() => window.open("https://nightly.link/Grasscutters/Grasscutter/workflows/build/unstable/Grasscutter.zip")}
+                                onClick={() =>
+                                    window.open(
+                                        "https://nightly.link/Grasscutters/Grasscutter/workflows/build/unstable/Grasscutter.zip"
+                                    )
+                                }
                             />
 
                             <BasicButton
                                 text={"Older Builds"}
                                 color={"#121928"}
-                                onClick={() => window.open("https://github.com/Grasscutters/Grasscutter/releases")}
+                                onClick={() =>
+                                    window.open(
+                                        "https://github.com/Grasscutters/Grasscutter/releases"
+                                    )
+                                }
                             />
                         </div>
 
@@ -90,13 +101,21 @@ class Downloads extends React.Component<{}, IState> {
                             <BasicButton
                                 text={"Latest Commit"}
                                 color={"#0095ff"}
-                                onClick={() => window.open("https://nightly.link/Grasscutters/Cultivation/workflows/build/main/CultivationWin.zip")}
+                                onClick={() =>
+                                    window.open(
+                                        "https://nightly.link/Grasscutters/Cultivation/workflows/build/main/CultivationWin.zip"
+                                    )
+                                }
                             />
 
                             <BasicButton
                                 text={"Older Builds"}
                                 color={"#121928"}
-                                onClick={() => window.open("https://github.com/Grasscutters/Cultivation/releases")}
+                                onClick={() =>
+                                    window.open(
+                                        "https://github.com/Grasscutters/Cultivation/releases"
+                                    )
+                                }
                             />
                         </div>
                     </div>

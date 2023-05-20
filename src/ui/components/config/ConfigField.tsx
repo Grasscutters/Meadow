@@ -15,12 +15,14 @@ class ConfigField extends React.Component<IProps, never> {
         return (
             <div className={"ConfigField"}>
                 <div className={"ConfigField_Info"}>
-                    <h4 className={"ConfigField_Name"}>{this.props.fieldName}</h4>
-                    <p className={"ConfigField_Description"}>{this.props.description}</p>
+                    <h4 className={"ConfigField_Name"}>
+                        {this.props.fieldName}
+                    </h4>
+                    <p className={"ConfigField_Description"}>
+                        {this.props.description}
+                    </p>
                 </div>
-                <div className={"ConfigField_Input"}>
-                    {this.props.children}
-                </div>
+                <div className={"ConfigField_Input"}>{this.props.children}</div>
             </div>
         );
     }

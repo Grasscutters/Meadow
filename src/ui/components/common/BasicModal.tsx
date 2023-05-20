@@ -1,4 +1,4 @@
-import React, {MouseEvent} from "react";
+import React, { MouseEvent } from "react";
 
 import BasicButton from "@components/common/BasicButton";
 

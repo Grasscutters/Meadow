@@ -1,6 +1,18 @@
 export type RunMode = "HYBRID" | "DISPATCH_ONLY" | "GAME_ONLY";
-export type ServerDebugMode = "ALL" | "MISSING" | "WHITELIST" | "BLACKLIST" | "NONE";
-export type LogLevel = "OFF" | "ERROR" | "WARN" | "INFO" | "DEBUG" | "TRACE" | "ALL";
+export type ServerDebugMode =
+    | "ALL"
+    | "MISSING"
+    | "WHITELIST"
+    | "BLACKLIST"
+    | "NONE";
+export type LogLevel =
+    | "OFF"
+    | "ERROR"
+    | "WARN"
+    | "INFO"
+    | "DEBUG"
+    | "TRACE"
+    | "ALL";
 export type MailItem = {
     itemId: number;
     itemCount: number;

@@ -62,7 +62,7 @@
 }
 
 .Header_Link:last-child:hover {
-    background-color:  rgba(88, 101, 242, 0.7);
+    background-color: rgba(88, 101, 242, 0.7);
 }
 
 .Header_MenuBtn {
@@ -92,7 +92,7 @@
 }
 
 .Header_LinksMobile svg:last-child:hover {
-    background-color:  rgba(88, 101, 242, 0.4);
+    background-color: rgba(88, 101, 242, 0.4);
 }
 
 .Header_MobileMenu {

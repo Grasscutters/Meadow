@@ -11,7 +11,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    width: 100%;
     max-width: 1200px;
     margin-top: 70px;
 }
@@ -91,10 +91,11 @@
     color: #ffffff;
     display: flex;
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
     margin: 40px;
     gap: 20px;
 }
@@ -105,7 +106,7 @@
     margin-top: 0;
 }
 
-.Downloads_More_Grasscutter {
+.Downloads_More_Grasscutter, .Downloads_More_Cultivation {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -118,31 +119,10 @@
     transition: all 0.2s ease-in-out;
     text-align: center;
     padding: 40px;
+    box-sizing: border-box;
 }
 
-.Downloads_More_Grasscutter h5 {
-    font-size: 20px;
-    font-weight: 500;
-    margin: 0;
-    color: #000;
-}
-
-.Downloads_More_Cultivation {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    gap: 20px;
-    background-color: #fafafa;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.75);
-    transition: all 0.2s ease-in-out;
-    text-align: center;
-    padding: 40px;
-}
-
-.Downloads_More_Cultivation h5 {
+.Downloads_More_Grasscutter h5, .Downloads_More_Cultivation h5 {
     font-size: 20px;
     font-weight: 500;
     margin: 0;
@@ -152,11 +132,11 @@
 @media screen and (max-width: 600px) {
     .Downloads_More_Grasscutter {
         flex-direction: column;
-        width: 300px;
+        width: 95%;
     }
 
     .Downloads_More_Cultivation {
         flex-direction: column;
-        width: 300px;
+        width: 95%;
     }
 }

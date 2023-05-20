@@ -15,9 +15,18 @@ class DownloadCard extends React.Component<IProps, never> {
 
     render() {
         return (
-            <div className={"DownloadCard"} onClick={() => window.open(this.props.downloadLink)}>
-                <p className={"DownloadCard_Version"}>{this.props.downloadVersion}</p>
-                <img className={"DownloadCard_Icon"} src={this.props.icon} alt={"Icon"} />
+            <div
+                className={"DownloadCard"}
+                onClick={() => window.open(this.props.downloadLink)}
+            >
+                <p className={"DownloadCard_Version"}>
+                    {this.props.downloadVersion}
+                </p>
+                <img
+                    className={"DownloadCard_Icon"}
+                    src={this.props.icon}
+                    alt={"Icon"}
+                />
                 <div className={"DownloadCard_Info"}>
                     <h4>{this.props.title}</h4>
                     <p>{this.props.description}</p>

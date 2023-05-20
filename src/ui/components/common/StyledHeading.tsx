@@ -16,9 +16,15 @@ class StyledHeading extends React.Component<IProps, never> {
     render() {
         return (
             <div className={"StyledHeading"}>
-                <div className={"StyledHeading_Top"} style={{ background: this.props.topColor }} />
+                <div
+                    className={"StyledHeading_Top"}
+                    style={{ background: this.props.topColor }}
+                />
                 <h1 className={"StyledHeading_Text"}>{this.props.text}</h1>
-                <div className={"StyledHeading_Bottom"} style={{ background: this.props.bottomColor }} />
+                <div
+                    className={"StyledHeading_Bottom"}
+                    style={{ background: this.props.bottomColor }}
+                />
             </div>
         );
     }

@@ -4,7 +4,7 @@ interface IProps {
     image: string;
     name: string;
     githubUrl: string;
-    badge?: "CREATOR" | "MELON"
+    badge?: "CREATOR" | "MELON";
 }
 
 class TeamMember extends React.Component<IProps, never> {
@@ -22,17 +22,19 @@ class TeamMember extends React.Component<IProps, never> {
                     onClick={() => window.open(this.props.githubUrl, "_blank")}
                 />
                 <h4 className="TeamMember_Name">{this.props.name}</h4>
-                {
-                    this.props.badge &&
+                {this.props.badge && (
                     <div
                         className="TeamMember_Badge"
                         style={{
-                            backgroundColor: this.props.badge === "CREATOR" ? "#ffe35a" : "#f67d69"
+                            backgroundColor:
+                                this.props.badge === "CREATOR"
+                                    ? "#ffe35a"
+                                    : "#f67d69",
                         }}
                     >
                         {this.props.badge}
                     </div>
-                }
+                )}
             </div>
         );
     }

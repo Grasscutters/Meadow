@@ -17,18 +17,24 @@ class App extends React.Component {
                 <Header />
                 <Routes>
                     <Route path={"/"} element={<Home />} />
-                    <Route path={"/downloads"} element={
-                        <React.Suspense fallback={<Loader />}>
-                            <Downloads />
-                        </React.Suspense>
-                    } />
+                    <Route
+                        path={"/downloads"}
+                        element={
+                            <React.Suspense fallback={<Loader />}>
+                                <Downloads />
+                            </React.Suspense>
+                        }
+                    />
                     <Route path={"/wiki"} element={<p>Wiki</p>} />
                     <Route path={"/features"} element={<p>Features</p>} />
-                    <Route path={"/config"} element={
-                        <React.Suspense fallback={<Loader />}>
-                            <ConfigGen />
-                        </React.Suspense>
-                    } />
+                    <Route
+                        path={"/config"}
+                        element={
+                            <React.Suspense fallback={<Loader />}>
+                                <ConfigGen />
+                            </React.Suspense>
+                        }
+                    />
                 </Routes>
 
                 <div className={"Footer"}>
