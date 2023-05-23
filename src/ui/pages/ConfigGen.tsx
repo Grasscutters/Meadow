@@ -703,13 +703,13 @@ class ConfigGen extends React.Component<{}, IState> {
 
     private copyConfig = () => {
         navigator.clipboard
-            .writeText(JSON.stringify(this.state.config, null, 4))
+            .writeText(JSON.stringify(this.state.config, null, 2))
             .then(() => alert("Config copied to clipboard!"));
     };
 
     private downloadConfig = () => {
         const element = document.createElement("a");
-        const file = new Blob([JSON.stringify(this.state.config, null, 4)], {
+        const file = new Blob([JSON.stringify(this.state.config, null, 2)], {
             type: "text/plain"
         });
         element.href = URL.createObjectURL(file);
@@ -731,7 +731,7 @@ class ConfigGen extends React.Component<{}, IState> {
                                 <ConfigField
                                     fieldName={"resources"}
                                     description={
-                                        "The path to your RESOURCES folder on your pc."
+                                        "The path to your RESOURCES folder on your computer."
                                     }
                                 >
                                     <input
@@ -744,7 +744,7 @@ class ConfigGen extends React.Component<{}, IState> {
                                 <ConfigField
                                     fieldName={"data"}
                                     description={
-                                        "The to your DATA folder on your pc."
+                                        "The path to your DATA folder on your computer."
                                     }
                                 >
                                     <input
@@ -757,7 +757,7 @@ class ConfigGen extends React.Component<{}, IState> {
                                 <ConfigField
                                     fieldName={"packets"}
                                     description={
-                                        "The path to your PACKETS folder on your pc."
+                                        "The path to your PACKETS folder on your computer. (optional)"
                                     }
                                 >
                                     <input
@@ -770,7 +770,7 @@ class ConfigGen extends React.Component<{}, IState> {
                                 <ConfigField
                                     fieldName={"scripts"}
                                     description={
-                                        "The path to your SCRIPTS folder on your pc."
+                                        "The path to your SCRIPTS folder on your computer."
                                     }
                                 >
                                     <input
@@ -783,7 +783,7 @@ class ConfigGen extends React.Component<{}, IState> {
                                 <ConfigField
                                     fieldName={"plugins"}
                                     description={
-                                        "The path to your PLUGINS folder on your pc."
+                                        "The path to your PLUGINS folder on your computer."
                                     }
                                 >
                                     <input
@@ -798,7 +798,7 @@ class ConfigGen extends React.Component<{}, IState> {
                                 <ConfigField
                                     fieldName={"server.connectionUri"}
                                     description={
-                                        "The connection URI to your server database."
+                                        "The MongoDB connection URI to your server database."
                                     }
                                 >
                                     <input
@@ -856,7 +856,7 @@ class ConfigGen extends React.Component<{}, IState> {
                                 <ConfigField
                                     fieldName={"language"}
                                     description={
-                                        "The language culture of your server."
+                                        "The language locale of your server."
                                     }
                                 >
                                     <input
@@ -869,7 +869,7 @@ class ConfigGen extends React.Component<{}, IState> {
                                 <ConfigField
                                     fieldName={"fallback"}
                                     description={
-                                        "The fallback language culture of your server."
+                                        "The fallback language locale of your server."
                                     }
                                 >
                                     <input
@@ -882,7 +882,7 @@ class ConfigGen extends React.Component<{}, IState> {
                                 <ConfigField
                                     fieldName={"document"}
                                     description={
-                                        "The document name of your language files."
+                                        "The short name of your server's language."
                                     }
                                 >
                                     <input
@@ -1677,7 +1677,7 @@ class ConfigGen extends React.Component<{}, IState> {
                                         "game.serverAccount.adventureRank"
                                     }
                                     description={
-                                        "The adventure rank of the server account."
+                                        "The Adventure Rank of the server account."
                                     }
                                 >
                                     <input
@@ -1734,7 +1734,7 @@ class ConfigGen extends React.Component<{}, IState> {
                                 <ConfigField
                                     fieldName={"dispatch.regions"}
                                     description={
-                                        "The game server regions to dispatch the player to."
+                                        "The different game servers a player can connect to."
                                     }
                                 >
                                     <BasicButton
@@ -1956,7 +1956,7 @@ class ConfigGen extends React.Component<{}, IState> {
                                         {JSON.stringify(
                                             this.state.config,
                                             null,
-                                            4
+                                            2
                                         )}
                                     </SyntaxHighlighter>
                                 </>
