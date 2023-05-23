@@ -2,7 +2,8 @@ import React from "react";
 
 import { AiOutlinePlus } from "react-icons/ai";
 import { BiCopy, BiDownload } from "react-icons/bi";
-import SyntaxHighlighter from "react-syntax-highlighter";
+import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
+import json from "react-syntax-highlighter/dist/esm/languages/hljs/json";
 import { darcula } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 import StyledHeading from "@components/common/StyledHeading";
@@ -23,6 +24,8 @@ import {
 import { getDefaultConfig } from "@app/utils";
 
 import "@css/pages/ConfigGen.css";
+
+SyntaxHighlighter.registerLanguage("json", json);
 
 interface IState {
     mailItems: MailItem[];
