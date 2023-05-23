@@ -199,8 +199,8 @@ class Home extends React.Component<{}, IState> {
 
                             <p>
                                 <em>
-                                    This project is not affiliated with the
-                                    Hoyoverse or miHoYo in any way and is
+                                    This project is not affiliated with
+                                    HoYoverse or miHoYo in any way and is
                                     licensed under the GNU Affero General Public
                                     License v3.0.
                                 </em>
@@ -211,22 +211,25 @@ class Home extends React.Component<{}, IState> {
                     <div className={"Home_About_Cards"}>
                         <HomeCard
                             count={this.formatNumber(this.state.stars)}
-                            text={"STARS ON GITHUB"}
+                            link={"https://github.com/Grasscutters/Grasscutter/stargazers"}
+                            text={"Stars on GitHub"}
                         />
                         <HomeCard
                             count={this.formatNumber(this.state.forks)}
-                            text={"REPOSITORY FORKS"}
+                            link={"https://github.com/Grasscutters/Grasscutter/forks"}
+                            text={"Repository Forks"}
                         />
                         <HomeCard
                             count={this.formatNumber(this.state.watchers)}
-                            text={"REPOSITORY WATCHERS"}
+                            link={"https://github.com/Grasscutters/Grasscutter/watchers"}
+                            text={"Repository Watchers"}
                         />
                     </div>
                 </div>
 
                 <div className={"Home_Team"}>
                     <h1>Meet the Team</h1>
-                    <h3>The people who made this project possible</h3>
+                    <h3>The people who made this project possible.</h3>
 
                     <div className={"Home_Team_Members"}>
                         <TeamMember

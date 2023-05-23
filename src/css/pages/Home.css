@@ -148,10 +148,18 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
+
+    -webkit-filter: brightness(100%);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .HomeCard:hover {
-    background-color: #f8f8f8;
+    -webkit-filter: brightness(90%);
+    cursor: pointer;
 }
 
 .HomeCard_Count {
