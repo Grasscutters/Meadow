@@ -92,14 +92,19 @@ class Header extends React.Component<{}, IState> {
                                 >
                                     <p>Wiki</p>
                                 </div>
-                                <div
-                                    className="Header_Page"
-                                    onClick={async () =>
-                                        await router.navigate("/features")
-                                    }
-                                >
-                                    <p>Features</p>
-                                </div>
+
+                                {
+                                    (window as any)["features"] && (
+                                        <div
+                                            className="Header_Page"
+                                            onClick={async () =>
+                                                await router.navigate("/features")
+                                            }
+                                        >
+                                            <p>Features</p>
+                                        </div>
+                                    )
+                                }
                             </div>
 
                             <div className="Header_Links">
@@ -112,7 +117,7 @@ class Header extends React.Component<{}, IState> {
                                     }
                                 >
                                     <FaGithub size={30} />
-                                    <p>Github</p>
+                                    <p>GitHub</p>
                                 </div>
                                 <div
                                     className="Header_Link"
