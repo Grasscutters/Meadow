@@ -91,7 +91,7 @@
     color: #fff;
     font-size: 16px;
     line-height: 1.5;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 400;
     max-width: 1200px;
     width: 100%;
@@ -173,7 +173,7 @@
     padding: 5px;
     background-color: rgba(26, 26, 26, 0.35);
     border-radius: 5px;
-    font-family: 'Roboto Mono', monospace;
+    font-family: "Roboto Mono", monospace;
     word-break: break-all;
 }
 
@@ -185,7 +185,7 @@
     border-radius: 5px;
     overflow: auto;
     width: 100%;
-    font-family: 'Roboto Mono', monospace;
+    font-family: "Roboto Mono", monospace;
 }
 
 .Wiki_Markdown pre code {
@@ -194,7 +194,7 @@
     line-height: 1.5;
     overflow: auto;
     width: 100%;
-    font-family: 'Roboto Mono', monospace;
+    font-family: "Roboto Mono", monospace;
 }
 
 .Wiki_Markdown table {
@@ -243,9 +243,8 @@
         transform: translateX(0);
     }
 
-    .Wiki_Markdown pre, .Wiki_Markdown pre code {
+    .Wiki_Markdown pre,
+    .Wiki_Markdown pre code {
         width: auto;
     }
 }
-
-

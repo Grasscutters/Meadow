@@ -19,7 +19,7 @@ import {
     Config,
     RunMode,
     ServerDebugMode,
-    LogLevel,
+    LogLevel
 } from "@app/types";
 import { getDefaultConfig } from "@app/utils";
 
@@ -40,7 +40,7 @@ class ConfigGen extends React.Component<{}, IState> {
         this.state = {
             mailItems: [],
             regions: [],
-            config: null,
+            config: null
         };
     }
 
@@ -70,9 +70,9 @@ class ConfigGen extends React.Component<{}, IState> {
                                     "config-add-item-level"
                                 ) as HTMLInputElement
                             )?.value || "0"
-                        ),
-                    },
-                ],
+                        )
+                    }
+                ]
             });
         } else {
             this.setState({
@@ -103,9 +103,9 @@ class ConfigGen extends React.Component<{}, IState> {
                                 document.getElementById(
                                     "config-add-region-ip"
                                 ) as HTMLInputElement
-                            )?.value || "",
-                    },
-                ],
+                            )?.value || ""
+                    }
+                ]
             });
         }
     };
@@ -113,11 +113,11 @@ class ConfigGen extends React.Component<{}, IState> {
     private deleteListItem = (item: MailItem | Region) => {
         if (item.hasOwnProperty("itemId")) {
             this.setState({
-                mailItems: this.state.mailItems.filter((i) => i !== item),
+                mailItems: this.state.mailItems.filter((i) => i !== item)
             });
         } else {
             this.setState({
-                regions: this.state.regions.filter((i) => i !== item),
+                regions: this.state.regions.filter((i) => i !== item)
             });
         }
     };
@@ -712,7 +712,7 @@ class ConfigGen extends React.Component<{}, IState> {
     private downloadConfig = () => {
         const element = document.createElement("a");
         const file = new Blob([JSON.stringify(this.state.config, null, 4)], {
-            type: "text/plain",
+            type: "text/plain"
         });
         element.href = URL.createObjectURL(file);
         element.download = "config.json";

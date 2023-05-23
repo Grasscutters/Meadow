@@ -23,7 +23,7 @@ class Downloads extends React.Component<{}, IState> {
             grasscutterVersion: "",
             grasscutterDownloadLink: "",
             cultivationVersion: "",
-            cultivationDownloadLink: "",
+            cultivationDownloadLink: ""
         };
     }
 
@@ -34,7 +34,7 @@ class Downloads extends React.Component<{}, IState> {
             grasscutterVersion: data.grasscutter.version,
             grasscutterDownloadLink: data.grasscutter.url,
             cultivationVersion: data.cultivation.version,
-            cultivationDownloadLink: data.cultivation.url,
+            cultivationDownloadLink: data.cultivation.url
         });
     };
 

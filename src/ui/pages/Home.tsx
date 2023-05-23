@@ -25,7 +25,7 @@ class Home extends React.Component<{}, IState> {
         this.state = {
             stars: 0,
             forks: 0,
-            watchers: 0,
+            watchers: 0
         };
     }
 
@@ -43,7 +43,7 @@ class Home extends React.Component<{}, IState> {
         this.setState({
             stars: stats.stars,
             forks: stats.forks,
-            watchers: stats.watchers,
+            watchers: stats.watchers
         });
     };
 

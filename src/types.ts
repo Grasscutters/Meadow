@@ -166,5 +166,5 @@ export type DocsObject = {
         self: string;
         git: string;
         html: string;
-    }
-}
+    };
+};

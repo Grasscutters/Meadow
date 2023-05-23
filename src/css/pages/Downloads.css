@@ -106,7 +106,8 @@
     margin-top: 0;
 }
 
-.Downloads_More_Grasscutter, .Downloads_More_Cultivation {
+.Downloads_More_Grasscutter,
+.Downloads_More_Cultivation {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -122,7 +123,8 @@
     box-sizing: border-box;
 }
 
-.Downloads_More_Grasscutter h5, .Downloads_More_Cultivation h5 {
+.Downloads_More_Grasscutter h5,
+.Downloads_More_Cultivation h5 {
     font-size: 20px;
     font-weight: 500;
     margin: 0;

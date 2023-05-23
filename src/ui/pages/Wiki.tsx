@@ -13,8 +13,7 @@ import { getDocsAsync, getDocsContentAsync, getReadmeAsync } from "@app/utils";
 import "@css/pages/Wiki.css";
 
 interface IProps {
-    match: { params: { page: string; } };
-
+    match: { params: { page: string } };
 }
 
 interface IState {
@@ -29,7 +28,7 @@ class Wiki extends React.Component<IProps, IState> {
         this.state = {
             docs: [],
             content: ""
-        }
+        };
     }
 
     private setDocPages = async () => {
@@ -41,40 +40,52 @@ class Wiki extends React.Component<IProps, IState> {
         });
 
         this.setState({ docs });
-    }
+    };
 
     private loadDocContent = async () => {
         if (this.props.match.params.page === "Home") {
             let content = await getReadmeAsync();
-            content = content.replaceAll("(docs/", "(https://github.com/Grasscutters/Grasscutter/tree/development/docs/");
+            content = content.replaceAll(
+                "(docs/",
+                "(https://github.com/Grasscutters/Grasscutter/tree/development/docs/"
+            );
             this.setState({ content });
         } else {
-            const doc = this.state.docs.find(doc => doc.name === `${this.props.match.params.page}.md`);
+            const doc = this.state.docs.find(
+                (doc) => doc.name === `${this.props.match.params.page}.md`
+            );
             if (doc) {
                 const content = await getDocsContentAsync(doc.download_url);
                 this.setState({ content });
             }
         }
-    }
+    };
 
     toggleOpaqueHeader = (opaque: boolean) => {
-        const header = document.getElementsByClassName("Header")[0] as HTMLElement;
+        const header = document.getElementsByClassName(
+            "Header"
+        )[0] as HTMLElement;
         if (opaque) {
             header.style.background = "#1186ce";
         } else {
-            header.style.background = "linear-gradient(0deg, transparent, rgba(0, 0, 0, 0.7))";
+            header.style.background =
+                "linear-gradient(0deg, transparent, rgba(0, 0, 0, 0.7))";
         }
-    }
+    };
 
     openSidebar = () => {
-        const sidebar = document.getElementsByClassName("Wiki_Sidebar")[0] as HTMLElement;
+        const sidebar = document.getElementsByClassName(
+            "Wiki_Sidebar"
+        )[0] as HTMLElement;
         sidebar.style.transform = "translateX(0)";
-    }
+    };
 
     closeSidebar = () => {
-        const sidebar = document.getElementsByClassName("Wiki_Sidebar")[0] as HTMLElement;
+        const sidebar = document.getElementsByClassName(
+            "Wiki_Sidebar"
+        )[0] as HTMLElement;
         sidebar.style.transform = "translateX(-100%)";
-    }
+    };
 
     async componentDidMount() {
         this.toggleOpaqueHeader(true);
@@ -100,30 +111,46 @@ class Wiki extends React.Component<IProps, IState> {
                     <BsChevronRight />
                 </div>
                 <div className={"Wiki_Sidebar"}>
-                    <BsChevronLeft className={"Wiki_Sidebar_Close"} onClick={this.closeSidebar} />
+                    <BsChevronLeft
+                        className={"Wiki_Sidebar_Close"}
+                        onClick={this.closeSidebar}
+                    />
 
-                    {
-                        this.state.docs.map((doc, index) => {
-                            return (
-                                <NavLink
-                                    key={index}
-                                    to={`/wiki/${doc.path.substring(0, doc.path.length - 3)}`}
-                                >
-                                    {({ isActive }) => {
-                                        return (
-                                            <>
-                                                {isActive && (<div className={"Wiki_Sidebar_Item_Active"}/>)}
-                                                {doc.name.substring(0, doc.name.length - 3)}
-                                            </>
-                                        );
-                                    }}
-                                </NavLink>
-                            );
-                        })
-                    }
+                    {this.state.docs.map((doc, index) => {
+                        return (
+                            <NavLink
+                                key={index}
+                                to={`/wiki/${doc.path.substring(
+                                    0,
+                                    doc.path.length - 3
+                                )}`}
+                            >
+                                {({ isActive }) => {
+                                    return (
+                                        <>
+                                            {isActive && (
+                                                <div
+                                                    className={
+                                                        "Wiki_Sidebar_Item_Active"
+                                                    }
+                                                />
+                                            )}
+                                            {doc.name.substring(
+                                                0,
+                                                doc.name.length - 3
+                                            )}
+                                        </>
+                                    );
+                                }}
+                            </NavLink>
+                        );
+                    })}
                 </div>
                 <div className={"Wiki_Content"}>
-                    <ReactMarkdown className={"Wiki_Markdown"} rehypePlugins={[rehypeRaw]}>
+                    <ReactMarkdown
+                        className={"Wiki_Markdown"}
+                        rehypePlugins={[rehypeRaw]}
+                    >
                         {this.state.content}
                     </ReactMarkdown>
                 </div>

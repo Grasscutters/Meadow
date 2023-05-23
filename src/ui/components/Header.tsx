@@ -20,7 +20,7 @@ class Header extends React.Component<{}, IState> {
         this.state = {
             isOpaque: false,
             isMobile: window.innerWidth < 875,
-            isMenuOpen: false,
+            isMenuOpen: false
         };
     }
 

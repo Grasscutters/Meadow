@@ -54,7 +54,7 @@ class Loader extends React.Component {
         "Downloading more RAM...",
         "Optimizing the optimizer...",
         "Never let a computer know you're in a hurry.",
-        "Deleting your \"homework\" folder...",
+        'Deleting your "homework" folder...',
         "Discovering new ways of making you wait...",
         "Your time is very important to us. Please wait while we ignore you...",
         "Sorry we are busy catching em' all, we'll be done soon",
@@ -79,7 +79,9 @@ class Loader extends React.Component {
     ];
 
     private getRandomLoadingText(): string {
-        return this.loadingText[Math.floor(Math.random() * this.loadingText.length)];
+        return this.loadingText[
+            Math.floor(Math.random() * this.loadingText.length)
+        ];
     }
 
     render() {

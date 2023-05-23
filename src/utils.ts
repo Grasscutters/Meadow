@@ -7,7 +7,7 @@ const gc_docs: string = "grasscutters/grasscutter-docs";
  */
 export async function getStatsAsync() {
     const res = await fetch(`https://api.github.com/repos/${grasscutter}`, {
-        headers: { Accept: "application/vnd.github.v3+json" },
+        headers: { Accept: "application/vnd.github.v3+json" }
     });
 
     const data = await res.json();
@@ -15,7 +15,7 @@ export async function getStatsAsync() {
     return {
         stars: data.stargazers_count,
         forks: data.forks_count,
-        watchers: data.subscribers_count,
+        watchers: data.subscribers_count
     };
 }
 
@@ -26,7 +26,7 @@ export async function getLatestReleaseAsync() {
     const resGC = await fetch(
         `https://api.github.com/repos/${grasscutter}/releases/latest`,
         {
-            headers: { Accept: "application/vnd.github.v3+json" },
+            headers: { Accept: "application/vnd.github.v3+json" }
         }
     );
 
@@ -35,7 +35,7 @@ export async function getLatestReleaseAsync() {
     const resC = await fetch(
         `https://api.github.com/repos/${cultivation}/releases/latest`,
         {
-            headers: { Accept: "application/vnd.github.v3+json" },
+            headers: { Accept: "application/vnd.github.v3+json" }
         }
     );
 
@@ -51,12 +51,12 @@ export async function getLatestReleaseAsync() {
     return {
         grasscutter: {
             version: dataGC.tag_name,
-            url: dataGC.assets[0].browser_download_url,
+            url: dataGC.assets[0].browser_download_url
         },
         cultivation: {
             version: dataC.tag_name,
-            url: dataC.assets[0].browser_download_url,
-        },
+            url: dataC.assets[0].browser_download_url
+        }
     };
 }
 
@@ -72,28 +72,28 @@ export function getDefaultConfig(): Config {
             data: "./data/",
             packets: "./packets/",
             scripts: "resources:Scripts/",
-            plugins: "./plugins/",
+            plugins: "./plugins/"
         },
         databaseInfo: {
             server: {
                 connectionUri: "mongodb://localhost:27017",
-                collection: "grasscutter",
+                collection: "grasscutter"
             },
             game: {
                 connectionUri: "mongodb://localhost:27017",
-                collection: "grasscutter",
-            },
+                collection: "grasscutter"
+            }
         },
         language: {
             language: "en_US",
             fallback: "en_US",
-            document: "EN",
+            document: "EN"
         },
         account: {
             autoCreate: false,
             EXPERIMENTAL_RealPassword: false,
             defaultPermissions: [],
-            maxPlayers: -1,
+            maxPlayers: -1
         },
         server: {
             debugWhitelist: [],
@@ -109,18 +109,18 @@ export function getDefaultConfig(): Config {
                     useEncryption: true,
                     useInRouting: true,
                     keystore: "./keystore.p12",
-                    keystorePassword: "123456",
+                    keystorePassword: "123456"
                 },
                 policies: {
                     cors: {
                         enabled: false,
-                        allowedOrigins: ["*"],
-                    },
+                        allowedOrigins: ["*"]
+                    }
                 },
                 files: {
                     indexFile: "./index.html",
-                    errorFile: "./error.html",
-                },
+                    errorFile: "./error.html"
+                }
             },
             game: {
                 bindAddress: "0.0.0.0",
@@ -140,11 +140,11 @@ export function getDefaultConfig(): Config {
                         relics: 2000,
                         materials: 2000,
                         furniture: 2000,
-                        all: 30000,
+                        all: 30000
                     },
                     avatarLimits: {
                         singlePlayerTeam: 4,
-                        multiPlayerTeam: 4,
+                        multiPlayerTeam: 4
                     },
                     sceneEntityLimit: 1000,
                     watchGachaConfig: false,
@@ -155,8 +155,8 @@ export function getDefaultConfig(): Config {
                     resinOptions: {
                         resinUsage: false,
                         cap: 160,
-                        rechargeTime: 480,
-                    },
+                        rechargeTime: 480
+                    }
                 },
                 serverAccount: {
                     avatarId: 10000007,
@@ -164,7 +164,7 @@ export function getDefaultConfig(): Config {
                     adventureRank: 1,
                     worldLevel: 0,
                     nickname: "Server",
-                    signature: "Welcome to Grasscutter!",
+                    signature: "Welcome to Grasscutter!"
                 },
                 joinOptions: {
                     welcomeEmotes: [2007, 1002, 4010],
@@ -178,21 +178,21 @@ export function getDefaultConfig(): Config {
                             {
                                 itemId: 13509,
                                 itemCount: 1,
-                                itemLevel: 1,
+                                itemLevel: 1
                             },
                             {
                                 itemId: 201,
                                 itemCount: 99999,
-                                itemLevel: 1,
-                            },
-                        ],
-                    },
-                },
+                                itemLevel: 1
+                            }
+                        ]
+                    }
+                }
             },
             dispatch: {
                 regions: [],
                 defaultName: "Grasscutter",
-                logRequests: "NONE",
+                logRequests: "NONE"
             },
             debugMode: {
                 serverLoggerLevel: "DEBUG",
@@ -200,9 +200,9 @@ export function getDefaultConfig(): Config {
                 logPackets: "ALL",
                 isShowPacketPayload: false,
                 isShowLoopPackets: false,
-                logRequests: "ALL",
-            },
-        },
+                logRequests: "ALL"
+            }
+        }
     };
 }
 
@@ -215,7 +215,7 @@ export async function getDocsAsync(): Promise<DocsObject[]> {
     const res = await fetch(
         `https://api.github.com/repos/${gc_docs}/contents/`,
         {
-            headers: { Accept: "application/vnd.github.v3+json" },
+            headers: { Accept: "application/vnd.github.v3+json" }
         }
     );
 
@@ -226,7 +226,9 @@ export async function getDocsAsync(): Promise<DocsObject[]> {
  * Fetches the content of the docs file
  * @param download_url The download url of the file
  */
-export async function getDocsContentAsync(download_url: string): Promise<string> {
+export async function getDocsContentAsync(
+    download_url: string
+): Promise<string> {
     const res = await fetch(download_url);
 
     return await res.text();

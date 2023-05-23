@@ -29,7 +29,7 @@ class TeamMember extends React.Component<IProps, never> {
                             backgroundColor:
                                 this.props.badge === "CREATOR"
                                     ? "#ffe35a"
-                                    : "#f67d69",
+                                    : "#f67d69"
                         }}
                     >
                         {this.props.badge}
