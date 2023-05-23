@@ -704,9 +704,7 @@ class ConfigGen extends React.Component<{}, IState> {
     private copyConfig = () => {
         navigator.clipboard
             .writeText(JSON.stringify(this.state.config, null, 4))
-            .then((r) => {
-                alert("Config copied to clipboard!");
-            });
+            .then(() => alert("Config copied to clipboard!"));
     };
 
     private downloadConfig = () => {
