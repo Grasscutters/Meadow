@@ -158,25 +158,35 @@ class Header extends React.Component<{}, IState> {
 
                 {this.state.isMobile && this.state.isMenuOpen ? (
                     <div className="Header_MobileMenu">
-                        <div onClick={async () => await router.navigate("/")}>
+                        <div
+                            onClick={async () => {
+                                await router.navigate("/");
+                                this.toggleMenu();
+                            }}
+                        >
                             Home
                         </div>
                         <div
-                            onClick={async () =>
-                                await router.navigate("/downloads")
-                            }
+                            onClick={async () => {
+                                await router.navigate("/downloads");
+                                this.toggleMenu();
+                            }}
                         >
                             Downloads
                         </div>
                         <div
-                            onClick={async () => await router.navigate("/wiki")}
+                            onClick={async () => {
+                                await router.navigate("/wiki/Home");
+                                this.toggleMenu();
+                            }}
                         >
                             Wiki
                         </div>
                         <div
-                            onClick={async () =>
-                                await router.navigate("/features")
-                            }
+                            onClick={async () => {
+                                await router.navigate("/features");
+                                this.toggleMenu();
+                            }}
                         >
                             Features
                         </div>

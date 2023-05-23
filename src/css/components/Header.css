@@ -101,6 +101,16 @@
     position: fixed;
     z-index: 10000;
     background-color: #1c1c1e;
+    animation: drop-in 0.2s ease-in-out forwards;
+}
+
+@keyframes drop-in {
+    0% {
+        transform: translateY(-100vh);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .Header_MobileMenu div {
