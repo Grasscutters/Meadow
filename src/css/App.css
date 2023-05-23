@@ -9,6 +9,20 @@ body {
     color: #fff;
 }
 
+::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1969c9;
+    border-radius: 10px;
+}
+
 .StyledHeading {
     display: flex;
     flex-direction: column;
