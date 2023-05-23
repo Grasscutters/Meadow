@@ -7,6 +7,7 @@ import Loader from "@components/common/Loader";
 import Home from "@pages/Home";
 const Downloads = React.lazy(() => import("@pages/Downloads"));
 const ConfigGen = React.lazy(() => import("@pages/ConfigGen"));
+const Wiki = React.lazy(() => import("@pages/Wiki"));
 
 import "@css/App.css";
 
@@ -25,7 +26,14 @@ class App extends React.Component {
                             </React.Suspense>
                         }
                     />
-                    <Route path={"/wiki"} element={<p>Wiki</p>} />
+                    <Route
+                        path={"/wiki/:page"}
+                        element={
+                            <React.Suspense fallback={<Loader />}>
+                                <Wiki />
+                            </React.Suspense>
+                        }
+                    />
                     <Route path={"/features"} element={<p>Features</p>} />
                     <Route
                         path={"/config"}

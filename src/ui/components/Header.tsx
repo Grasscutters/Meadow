@@ -25,6 +25,8 @@ class Header extends React.Component<{}, IState> {
     }
 
     handleScroll = () => {
+        // check if the user is ta home page else return
+        if (window.location.pathname.includes("wiki/")) return;
         const { isOpaque } = this.state;
         const header = document.getElementsByClassName(
             "Header"
@@ -85,7 +87,7 @@ class Header extends React.Component<{}, IState> {
                                 <div
                                     className="Header_Page"
                                     onClick={async () =>
-                                        await router.navigate("/wiki")
+                                        await router.navigate("/wiki/Home")
                                     }
                                 >
                                     <p>Wiki</p>

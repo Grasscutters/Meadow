@@ -1,5 +1,6 @@
 const grasscutter: string = "grasscutters/grasscutter";
 const cultivation: string = "grasscutters/cultivation";
+const gc_docs: string = "grasscutters/grasscutter-docs";
 
 /**
  * Get the number of stars, forks and watchers of the repo
@@ -203,4 +204,43 @@ export function getDefaultConfig(): Config {
             },
         },
     };
+}
+
+import { DocsObject } from "@app/types";
+
+/**
+ * Fetches all the files in the docs repository
+ */
+export async function getDocsAsync(): Promise<DocsObject[]> {
+    const res = await fetch(
+        `https://api.github.com/repos/${gc_docs}/contents/`,
+        {
+            headers: { Accept: "application/vnd.github.v3+json" },
+        }
+    );
+
+    return await res.json();
+}
+
+/**
+ * Fetches the content of the docs file
+ * @param download_url The download url of the file
+ */
+export async function getDocsContentAsync(download_url: string): Promise<string> {
+    const res = await fetch(download_url);
+
+    return await res.text();
+}
+
+/**
+ * Fetches the README.md file from grasscutter
+ */
+export async function getReadmeAsync(): Promise<string> {
+    const res = await fetch(
+        "https://raw.githubusercontent.com/Grasscutters/Grasscutter/development/README.md"
+    );
+
+    console.log(res);
+
+    return await res.text();
 }

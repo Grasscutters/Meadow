@@ -1,0 +1,251 @@
+.Wiki {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "sidebar content";
+    min-height: calc(100vh - 100px);
+    width: 100%;
+    overflow: hidden;
+}
+
+.Wiki_Sidebar_Open {
+    width: 25px;
+    height: 25px;
+    padding: 15px;
+    border-radius: 0 20px 20px 0;
+    background-color: #1969c9;
+    color: #fff;
+    font-size: 20px;
+    display: none;
+    cursor: pointer;
+    position: fixed;
+    left: 0;
+    top: 80px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    transition: all 0.3s ease-in-out;
+}
+
+.Wiki_Sidebar_Open:hover {
+    padding-left: 30px;
+}
+
+.Wiki_Sidebar_Close {
+    width: 25px;
+    height: 25px;
+    padding: 15px;
+    border-radius: 40px;
+    color: #fff;
+    font-size: 20px;
+    background-color: #1969c9;
+    align-self: flex-start;
+    margin: 10px 0;
+    display: none;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    transition: all 0.3s ease-in-out;
+}
+
+.Wiki_Sidebar {
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 80px 0 0;
+    background-color: #1a1a1a;
+    width: 25vw;
+}
+
+.Wiki_Sidebar_Item_Active {
+    position: absolute;
+    left: -1px;
+    width: 5px;
+    height: 25px;
+    background-color: #1969c9;
+    border-radius: 2px 0 0 2px;
+}
+
+.Wiki_Sidebar a {
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    width: 300px;
+    transition: all 0.1s ease-in-out;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.Wiki_Sidebar a:hover {
+    filter: brightness(0.8);
+}
+
+.Wiki_Content {
+    grid-area: content;
+    box-sizing: border-box;
+    width: 100%;
+    height: calc(100vh - 100px);
+    overflow: auto;
+}
+
+.Wiki_Markdown {
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    max-width: 1200px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 80px 20px 20px 20px;
+}
+
+.Wiki_Markdown h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.Wiki_Markdown h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.Wiki_Markdown h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.Wiki_Markdown h4 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.Wiki_Markdown h5 {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.Wiki_Markdown h6 {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.Wiki_Markdown p {
+    margin-bottom: 20px;
+}
+
+.Wiki_Markdown a {
+    color: #72a8ee;
+    text-decoration: none;
+}
+
+.Wiki_Markdown a:hover {
+    text-decoration: underline;
+}
+
+.Wiki_Markdown img {
+    max-width: 100%;
+    height: auto;
+}
+
+.Wiki_Markdown ul {
+    margin-bottom: 20px;
+}
+
+.Wiki_Markdown ul li {
+    margin-bottom: 10px;
+}
+
+.Wiki_Markdown ol {
+    margin-bottom: 20px;
+}
+
+.Wiki_Markdown ol li {
+    margin-bottom: 10px;
+}
+
+.Wiki_Markdown blockquote {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border-left: 2px solid #1969c9;
+}
+
+.Wiki_Markdown code {
+    padding: 5px;
+    background-color: rgba(26, 26, 26, 0.35);
+    border-radius: 5px;
+    font-family: 'Roboto Mono', monospace;
+    word-break: break-all;
+}
+
+.Wiki_Markdown pre {
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #1a1a1a;
+    border-radius: 5px;
+    overflow: auto;
+    width: 100%;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.Wiki_Markdown pre code {
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.5;
+    overflow: auto;
+    width: 100%;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.Wiki_Markdown table {
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.Wiki_Markdown table th {
+    padding: 10px;
+    border: 1px solid #1969c9;
+}
+
+.Wiki_Markdown table td {
+    padding: 10px;
+    border: 1px solid #1969c9;
+}
+
+@media screen and (max-width: 1245px) {
+    .Wiki {
+        grid-template-columns: 1fr;
+        grid-template-areas: "content";
+    }
+
+    .Wiki_Sidebar_Open {
+        display: block;
+    }
+
+    .Wiki_Sidebar_Close {
+        display: block;
+    }
+
+    .Wiki_Sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 100vh;
+        padding: 80px 20px 20px;
+        transform: translateX(-100%);
+        background-color: #1a1a1a;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .Wiki_Sidebar_Toggle.active + .Wiki_Sidebar {
+        transform: translateX(0);
+    }
+
+    .Wiki_Markdown pre, .Wiki_Markdown pre code {
+        width: auto;
+    }
+}
+
+
