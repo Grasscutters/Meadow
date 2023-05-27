@@ -104,6 +104,18 @@
     max-width: 800px;
 }
 
+.Home_ConfigGen_Container_Text h1 {
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.Home_ConfigGen_Container_Text p {
+    font-size: 17px;
+    font-weight: 500;
+    color: #e1e1e1;
+}
+
 .Home_About {
     display: flex;
     flex-direction: column;
@@ -269,7 +281,7 @@
     }
 
     .Home_ConfigGen {
-        height: 400px;
+        height: 500px;
     }
 
     .Home_ConfigGen_Container {
