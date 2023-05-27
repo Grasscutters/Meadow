@@ -128,7 +128,6 @@ class Wiki extends React.Component<IProps, IState> {
     };
 
     async componentDidMount() {
-        console.log(this.props.match);
         this.toggleOpaqueHeader(true);
 
         await this.setDocsTree();
@@ -136,7 +135,6 @@ class Wiki extends React.Component<IProps, IState> {
     }
 
     async componentDidUpdate(prevProps: IProps) {
-        console.log(this.props.match);
         if (prevProps.match.params["*"] !== this.props.match.params["*"]) {
             await this.loadDocContent();
         }
