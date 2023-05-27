@@ -2,13 +2,14 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 import rehypeRaw from "rehype-raw";
+import remarkGfm from "remark-gfm";
 import ReactMarkdown from "react-markdown";
 import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 
 import Router from "@components/common/Router";
+import { TableRenderer, HeadingRenderer } from "@components/wiki/Renderers";
 
-import { DocsObject } from "@app/types";
-import { getDocsAsync, getDocsContentAsync, getReadmeAsync } from "@app/utils";
+import { getDocsTreeAsync, getDocContentAsync } from "@app/utils";
 
 import "@css/pages/Wiki.css";
 
@@ -17,7 +18,7 @@ interface IProps {
 }
 
 interface IState {
-    docs: DocsObject[];
+    docs: any[];
     content: string;
 }
 
@@ -31,35 +32,74 @@ class Wiki extends React.Component<IProps, IState> {
         };
     }
 
-    private setDocPages = async () => {
-        const docs = await getDocsAsync();
-        docs.sort((a, b) => {
-            if (a.name === "Home.md") return -1;
-            if (b.name === "Home.md") return 1;
-            return 0;
-        });
+    private renderDocsTree = (item: any, level = 0) => {
+        const paddingLeft = level * 20 + 20;
 
-        this.setState({ docs });
+        if (item._type === "dir") {
+            return (
+                <>
+                    {
+                        item._main ?
+                            <h3>{item.name}</h3> :
+                            <p style={{ paddingLeft }}>
+                                {item.name}
+                            </p>
+                    }
+                    {item.children && item.children.map((child: any) => this.renderDocsTree(child, level + 1))}
+                </>
+            )
+        } else if (item._type === "file") {
+            return (
+                <NavLink
+                    to={`/wiki/${item.path.split("/").join("_").split(".")[0]}`}
+                    style={
+                        ({ isActive }) => ({
+                            paddingLeft,
+                            color: isActive ? "#1186ce" : "white"
+                        })
+                    }
+                >
+                    {({ isActive }) => {
+                        return (
+                            <>
+                                {isActive && (<div className={"Wiki_Sidebar_Item_Active"}/>)}
+                                {item.name}
+                            </>
+                        );
+                    }}
+                </NavLink>
+            )
+        } else {
+            return null;
+        }
+    }
+
+    private setDocsTree = async () => {
+        this.setState({ docs: await getDocsTreeAsync() });
     };
 
     private loadDocContent = async () => {
-        if (this.props.match.params.page === "Home") {
-            let content = await getReadmeAsync();
-            content = content.replaceAll(
-                "(docs/",
-                "(https://github.com/Grasscutters/Grasscutter/tree/development/docs/"
-            );
+        const doc = this.findPage(this.props.match.params.page.split("_").join("/") + ".md");
+        if (doc !== null) {
+            const content = await getDocContentAsync(doc.path);
             this.setState({ content });
-        } else {
-            const doc = this.state.docs.find(
-                (doc) => doc.name === `${this.props.match.params.page}.md`
-            );
-            if (doc) {
-                const content = await getDocsContentAsync(doc.download_url);
-                this.setState({ content });
-            }
         }
     };
+
+    private findPage = (path: string, obj: any[] = this.state.docs) => {
+        for (let i = 0; i < obj.length; i++) {
+            if (obj[i].path === path) {
+                return obj[i];
+            } else if (obj[i].children && obj[i].children.length > 0) {
+                const result: any = this.findPage(path, obj[i].children);
+                if (result !== null) {
+                    return result;
+                }
+            }
+        }
+
+        return null;
+    }
 
     toggleOpaqueHeader = (opaque: boolean) => {
         const header = document.getElementsByClassName(
@@ -90,7 +130,7 @@ class Wiki extends React.Component<IProps, IState> {
     async componentDidMount() {
         this.toggleOpaqueHeader(true);
 
-        await this.setDocPages();
+        await this.setDocsTree();
         await this.loadDocContent();
     }
 
@@ -116,40 +156,20 @@ class Wiki extends React.Component<IProps, IState> {
                         onClick={this.closeSidebar}
                     />
 
-                    {this.state.docs.map((doc, index) => {
-                        return (
-                            <NavLink
-                                key={index}
-                                to={`/wiki/${doc.path.substring(
-                                    0,
-                                    doc.path.length - 3
-                                )}`}
-                            >
-                                {({ isActive }) => {
-                                    return (
-                                        <>
-                                            {isActive && (
-                                                <div
-                                                    className={
-                                                        "Wiki_Sidebar_Item_Active"
-                                                    }
-                                                />
-                                            )}
-                                            {doc.name.substring(
-                                                0,
-                                                doc.name.length - 3
-                                            )}
-                                        </>
-                                    );
-                                }}
-                            </NavLink>
-                        );
-                    })}
+                    {
+                        this.state.docs.map((child) => this.renderDocsTree(child))
+                    }
                 </div>
                 <div className={"Wiki_Content"}>
                     <ReactMarkdown
                         className={"Wiki_Markdown"}
                         rehypePlugins={[rehypeRaw]}
+                        remarkPlugins={[remarkGfm]}
+                        components={{
+                            table: TableRenderer,
+                            h1: HeadingRenderer,
+                            h2: HeadingRenderer
+                        }}
                     >
                         {this.state.content}
                     </ReactMarkdown>

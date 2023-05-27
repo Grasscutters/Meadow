@@ -64,15 +64,35 @@
     border-radius: 2px 0 0 2px;
 }
 
-.Wiki_Sidebar a {
+.Wiki_Sidebar h3 {
     color: #fff;
+    font-size: 18px;
+    margin: 20px 0 10px 0;
+    padding: 0;
+    width: 300px;
+    box-sizing: border-box;
+}
+
+.Wiki_Sidebar p {
+    font-size: 15px;
+    padding: 0 20px;
+    width: 300px;
+    box-sizing: border-box;
+    margin: 15px 0 0 0;
+    color: #e5e5e5;
+}
+
+.Wiki_Sidebar a {
+    font-size: 15px;
     text-decoration: none;
+    margin-top: 10px;
     margin-bottom: 10px;
-    padding: 10px 20px;
+    padding: 0 20px;
     width: 300px;
     transition: all 0.1s ease-in-out;
     box-sizing: border-box;
     position: relative;
+    color: #e5e5e5;
 }
 
 .Wiki_Sidebar a:hover {
@@ -100,12 +120,21 @@
 }
 
 .Wiki_Markdown h1 {
-    font-size: 32px;
-    margin-bottom: 20px;
+    font-size: 36px;
+    margin-bottom: 10px;
+    margin-top: 30px;
 }
 
 .Wiki_Markdown h2 {
     font-size: 24px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+.Wiki_Heading_Divider {
+    width: 100%;
+    height: 1px;
+    background-color: #6c6c6c;
     margin-bottom: 20px;
 }
 
@@ -165,8 +194,10 @@
 
 .Wiki_Markdown blockquote {
     margin-bottom: 20px;
-    padding-left: 20px;
-    border-left: 2px solid #1969c9;
+    padding: 5px 20px;
+    border-left: 5px solid #1969c9;
+    border-radius: 5px;
+    background-color: rgba(25, 105, 201, 0.5);
 }
 
 .Wiki_Markdown code {
@@ -194,18 +225,28 @@
     line-height: 1.5;
     overflow: auto;
     width: 100%;
-    font-family: "Roboto Mono", monospace;
+    font-family: 'Roboto Mono', monospace;
+    padding: 0;
+}
+
+.Wiki_Table {
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    overflow: auto;
+    width: 100%;
 }
 
 .Wiki_Markdown table {
     margin-bottom: 20px;
     border-collapse: collapse;
+    overflow: auto;
     width: 100%;
 }
 
 .Wiki_Markdown table th {
     padding: 10px;
     border: 1px solid #1969c9;
+    background-color: #1969c9;
 }
 
 .Wiki_Markdown table td {
@@ -248,3 +289,5 @@
         width: auto;
     }
 }
+
+

@@ -209,40 +209,36 @@ export function getDefaultConfig(): Config {
 import { DocsObject } from "@app/types";
 
 /**
- * Fetches all the files in the docs repository
+ * Fetches the docs tree from the repo
  */
-export async function getDocsAsync(): Promise<DocsObject[]> {
-    const res = await fetch(
-        `https://api.github.com/repos/${gc_docs}/contents/`,
-        {
-            headers: { Accept: "application/vnd.github.v3+json" }
-        }
-    );
+export async function getDocsTreeAsync(): Promise<any[]> {
+    const res = await fetch(`https://raw.githubusercontent.com/${gc_docs}/master/navigation.json`);
 
     return await res.json();
 }
 
 /**
  * Fetches the content of the docs file
- * @param download_url The download url of the file
+ * @param path The path to the file in the repo
  */
-export async function getDocsContentAsync(
-    download_url: string
-): Promise<string> {
-    const res = await fetch(download_url);
+export async function getDocContentAsync(path: string): Promise<string> {
+    const res = await fetch(`https://raw.githubusercontent.com/Grasscutters/Grasscutter-Docs/master/docs/${path}`);
 
     return await res.text();
 }
 
 /**
- * Fetches the README.md file from grasscutter
+ * Generates slug from a string
+ * @param str The string to generate slug from
  */
-export async function getReadmeAsync(): Promise<string> {
-    const res = await fetch(
-        "https://raw.githubusercontent.com/Grasscutters/Grasscutter/development/README.md"
-    );
+export function slugify(str: string): string {
+    const randomString = Math.random().toString(36).substring(2, 15);
+    str = str
+            .toLowerCase()
+            .replace(/ /g, "-")
+            .replace(/[^\w-]+/g, "")
+            .replace(/--+/g, "-")
+            .trim();
 
-    console.log(res);
-
-    return await res.text();
+    return str + "-" + randomString;
 }
