@@ -240,6 +240,42 @@ body {
     }
 }
 
+.FallbackPage {
+    height: calc(100vh - 100px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.FallbackPage div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 90%;
+}
+
+.FallbackPage h1 {
+    font-size: 50px;
+    font-weight: 1000;
+    margin: 0;
+}
+
+.FallbackPage p {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.FallbackPage a {
+    text-decoration: none;
+    color: #3498db;
+    font-size: 20px;
+    font-weight: 500;
+}
+
 @media screen and (max-width: 500px) {
     .BasicModal {
         width: 100%;

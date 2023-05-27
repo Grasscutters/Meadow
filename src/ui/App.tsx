@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 import Header from "@components/Header";
 import Loader from "@components/common/Loader";
+import FallbackPage from "@components/common/FallbackPage";
 
 import Home from "@pages/Home";
 const Downloads = React.lazy(() => import("@pages/Downloads"));
@@ -44,6 +45,7 @@ class App extends React.Component {
                             </React.Suspense>
                         }
                     />
+                    <Route path={"*"} element={<FallbackPage />} />
                 </Routes>
 
                 <div className={"Footer"}>
