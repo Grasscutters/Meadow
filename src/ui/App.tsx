@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import Header from "@components/Header";
 import Loader from "@components/common/Loader";
@@ -26,6 +26,7 @@ class App extends React.Component {
                             </React.Suspense>
                         }
                     />
+                    <Route path={"/wiki"} element={<Navigate to={"/wiki/Home"} />} />
                     <Route
                         path={"/wiki/*"}
                         element={
