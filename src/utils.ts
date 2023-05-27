@@ -206,8 +206,6 @@ export function getDefaultConfig(): Config {
     };
 }
 
-import { DocsObject } from "@app/types";
-
 /**
  * Fetches the docs tree from the repo
  */
