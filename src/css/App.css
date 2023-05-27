@@ -216,6 +216,11 @@ body {
     gap: 20px;
 }
 
+.Loader p {
+    text-align: center;
+    width: 90%;
+}
+
 .Loader_Spinner {
     border: 16px solid transparent;
     border-top: 16px solid #3498db;
