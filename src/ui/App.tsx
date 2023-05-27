@@ -27,7 +27,7 @@ class App extends React.Component {
                         }
                     />
                     <Route
-                        path={"/wiki/:page"}
+                        path={"/wiki/*"}
                         element={
                             <React.Suspense fallback={<Loader />}>
                                 <Wiki />

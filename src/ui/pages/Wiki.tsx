@@ -14,7 +14,7 @@ import { getDocsTreeAsync, getDocContentAsync } from "@app/utils";
 import "@css/pages/Wiki.css";
 
 interface IProps {
-    match: { params: { page: string } };
+    match: { params: { "*": string } };
 }
 
 interface IState {
@@ -51,7 +51,7 @@ class Wiki extends React.Component<IProps, IState> {
         } else if (item._type === "file") {
             return (
                 <NavLink
-                    to={`/wiki/${item.path.split("/").join("_").split(".")[0]}`}
+                    to={`/wiki/${item.path.split(".")[0]}`}
                     style={
                         ({ isActive }) => ({
                             paddingLeft,
@@ -79,7 +79,7 @@ class Wiki extends React.Component<IProps, IState> {
     };
 
     private loadDocContent = async () => {
-        const doc = this.findPage(this.props.match.params.page.split("_").join("/") + ".md");
+        const doc = this.findPage(this.props.match.params["*"] + ".md");
         if (doc !== null) {
             const content = await getDocContentAsync(doc.path);
             this.setState({ content });
@@ -128,6 +128,7 @@ class Wiki extends React.Component<IProps, IState> {
     };
 
     async componentDidMount() {
+        console.log(this.props.match);
         this.toggleOpaqueHeader(true);
 
         await this.setDocsTree();
@@ -135,7 +136,8 @@ class Wiki extends React.Component<IProps, IState> {
     }
 
     async componentDidUpdate(prevProps: IProps) {
-        if (prevProps.match.params.page !== this.props.match.params.page) {
+        console.log(this.props.match);
+        if (prevProps.match.params["*"] !== this.props.match.params["*"]) {
             await this.loadDocContent();
         }
     }
