@@ -7,6 +7,7 @@ import ReactMarkdown from "react-markdown";
 import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 
 import Router from "@components/common/Router";
+import Loader from "@components/common/Loader";
 import { TableRenderer, HeadingRenderer } from "@components/wiki/Renderers";
 
 import { getDocsTreeAsync, getDocContentAsync } from "@app/utils";
@@ -20,6 +21,7 @@ interface IProps {
 interface IState {
     docs: any[];
     content: string;
+    showLoader: boolean;
 }
 
 class Wiki extends React.Component<IProps, IState> {
@@ -28,8 +30,14 @@ class Wiki extends React.Component<IProps, IState> {
 
         this.state = {
             docs: [],
-            content: ""
+            content: "",
+            showLoader: true,
         };
+    }
+
+    private initialize = async () => {
+        await this.setDocsTree();
+        await this.loadDocContent();
     }
 
     private renderDocsTree = (item: any, level = 0) => {
@@ -79,10 +87,13 @@ class Wiki extends React.Component<IProps, IState> {
     };
 
     private loadDocContent = async () => {
+        this.setState({ showLoader: true, content: "" });
         const doc = this.findPage(this.props.match.params["*"] + ".md");
         if (doc !== null) {
             const content = await getDocContentAsync(doc.path);
-            this.setState({ content });
+            this.setState({ showLoader: false, content });
+        } else {
+            this.setState({ showLoader: false, content: "404. Not Found." });
         }
     };
 
@@ -127,16 +138,14 @@ class Wiki extends React.Component<IProps, IState> {
         sidebar.style.transform = "translateX(-100%)";
     };
 
-    async componentDidMount() {
+    componentDidMount() {
         this.toggleOpaqueHeader(true);
-
-        await this.setDocsTree();
-        await this.loadDocContent();
+        this.initialize().catch(console.error)
     }
 
-    async componentDidUpdate(prevProps: IProps) {
+   componentDidUpdate(prevProps: IProps) {
         if (prevProps.match.params["*"] !== this.props.match.params["*"]) {
-            await this.loadDocContent();
+            this.loadDocContent().catch(console.error);
         }
     }
 
@@ -161,6 +170,7 @@ class Wiki extends React.Component<IProps, IState> {
                     }
                 </div>
                 <div className={"Wiki_Content"}>
+                    {this.state.showLoader && <Loader />}
                     <ReactMarkdown
                         className={"Wiki_Markdown"}
                         rehypePlugins={[rehypeRaw]}
