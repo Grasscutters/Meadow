@@ -37,7 +37,7 @@ class Wiki extends React.Component<IProps, IState> {
 
     private initialize = async () => {
         await this.setDocsTree();
-        await this.loadDocContent();
+        setTimeout(this.loadDocContent, 500);
     }
 
     private renderDocsTree = (item: any, level = 0) => {
