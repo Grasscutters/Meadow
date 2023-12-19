@@ -9,7 +9,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "npx prettier --write \"src/**/*.{ts,tsx,js,jsx,json,md,css}\""
+    "lint": "npx prettier --write \"src/**/*.{ts,tsx,js,jsx,json,md,css}\"",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
 
   "dependencies": {
@@ -19,7 +21,6 @@
     "react-markdown": "^8.0.7",
     "react-router-dom": "^6.11.1",
     "react-syntax-highlighter": "^15.5.0",
-
 
     "rehype-raw": "^6.1.1",
     "rehype-highlight": "^6.0.0",
@@ -37,6 +38,7 @@
 
     "prettier": "^2.8.7",
 
-    "typescript": "^4.9.3"
+    "typescript": "^4.9.3",
+    "gh-pages": "^6.1.0"
   }
 }
